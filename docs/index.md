@@ -27,16 +27,16 @@ Design OS is its own separate codebase—a design environment you use *before* b
 
 You interact with Design OS through slash commands. Each command walks you through a specific part of the process:
 
-- `/product-vision` — Define your product, break it into sections, and sketch the data shape — all in one flow
-- `/design-tokens` — Choose your color palette and typography
-- `/design-shell` — Design navigation and layout
-- `/shape-section` — Define a section's scope, requirements, and generate sample data + types
-- `/design-screen` — Create production-ready React components
-- `/screenshot-design` — Snap a screenshot of a finished design screen for quick reference
-- `/export-product` — Generate the complete handoff package
-- `/product-roadmap` — Update your product sections (after initial creation)
-- `/data-shape` — Update your data entities (after initial creation)
-- `/sample-data` — Update sample data and types (after initial creation)
+- `/visao` — Define your product, break it into sections, and sketch the data shape — all in one flow
+- `/estilo` — Choose your color palette and typography
+- `/estrutura` — Design navigation and layout
+- `/secao` — Define a section's scope, requirements, and generate sample data + types
+- `/tela` — Create production-ready React components
+- `/foto` — Snap a screenshot of a finished design screen for quick reference
+- `/exportar` — Generate the complete handoff package
+- `/roadmap` — Update your product sections (after initial creation)
+- `/dados` — Update your data entities (after initial creation)
+- `/dados-exemplo` — Update sample data and types (after initial creation)
 
 See [Usage](usage.md) for the full workflow.
 

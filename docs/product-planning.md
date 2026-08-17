@@ -5,7 +5,7 @@ The first phase of Design OS establishes the foundation for your product. Comple
 ## 1. Product Vision
 
 ```
-/product-vision
+/visao
 ```
 
 Define your product's core identity in one conversational flow. You'll establish:
@@ -25,13 +25,13 @@ Share any notes, ideas, or rough thoughts you have about what you're building. T
 - `product/data-shape/data-shape.md` — Core entities and relationships
 
 **To update individually later:**
-- `/product-roadmap` — Add, remove, or reorder sections
-- `/data-shape` — Add, remove, or update entities and relationships
+- `/roadmap` — Add, remove, or reorder sections
+- `/dados` — Add, remove, or update entities and relationships
 
 ## 2. Design Tokens
 
 ```
-/design-tokens
+/estilo
 ```
 
 Choose your visual identity:
@@ -59,7 +59,7 @@ The AI will suggest options based on your product type and help you find a combi
 ## 3. Application Shell
 
 ```
-/design-shell
+/estrutura
 ```
 
 Design the persistent navigation and layout that wraps all your sections. Choose from common patterns:

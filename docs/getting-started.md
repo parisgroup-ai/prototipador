@@ -3,11 +3,11 @@
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/buildermethods/design-os.git my-project-design
-cd my-project-design
+git clone https://github.com/parisgroup-ai/prototipador.git meu-produto-prototipo
+cd meu-produto-prototipo
 ```
 
-Replace `my-project-design` with whatever you want to name your design workspace.
+Replace `meu-produto-prototipo` with whatever you want to name your design workspace.
 
 ## Remove the Original Remote
 
@@ -39,7 +39,7 @@ In the same project directory, start Claude Code:
 claude
 ```
 
-You're ready to start designing. Run `/product-vision` to begin defining your product.
+You're ready to start designing. Run `/visao` to begin defining your product.
 
 ---
 

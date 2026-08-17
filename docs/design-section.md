@@ -5,7 +5,7 @@ After completing [Product Planning](product-planning.md), you're ready to design
 ## 1. Shape the Section
 
 ```
-/shape-section
+/secao
 ```
 
 Define what the section does and generate its sample data — all in one step. If you have multiple sections, you'll be asked which one to work on.
@@ -31,12 +31,12 @@ Once it has enough information, the AI writes the spec and generates sample data
 - `product/sections/[section-id]/data.json` — Sample data with `_meta` descriptions
 - `product/sections/[section-id]/types.ts` — TypeScript interfaces
 
-**To update sample data later:** Run `/sample-data` to modify the data structure or sample records.
+**To update sample data later:** Run `/dados-exemplo` to modify the data structure or sample records.
 
 ## 2. Design the Screen
 
 ```
-/design-screen
+/tela
 ```
 
 Build the actual React components for the section. This is where the spec and sample data become a working UI.
@@ -75,7 +75,7 @@ All screen designs include:
 
 ### Multiple Views
 
-If the spec implies multiple views (list view, detail view, form, etc.), you'll be asked which to build first. Run `/design-screen` again for additional views.
+If the spec implies multiple views (list view, detail view, form, etc.), you'll be asked which to build first. Run `/tela` again for additional views.
 
 **Creates:**
 - `src/sections/[section-id]/components/[ViewName].tsx` — Main component
@@ -88,7 +88,7 @@ If the spec implies multiple views (list view, detail view, form, etc.), you'll 
 ## 3. Capture Screenshots (Optional)
 
 ```
-/screenshot-design
+/foto
 ```
 
 Take screenshots of your screen designs for documentation. Screenshots are saved alongside the spec and data files.

@@ -15,7 +15,7 @@ You can export at any point—it doesn't have to be "complete." Exporting genera
 ## Running the Export
 
 ```
-/export-product
+/exportar
 ```
 
 The export command:

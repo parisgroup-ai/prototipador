@@ -1,19 +1,19 @@
-# Agent Directives for Design OS
+# Agent Directives for Prototipador
 
-Design OS is a **product planning and design tool** that helps users define their product vision, sketch out their data shape, design their UI, and prepare export packages for implementation in a separate codebase.
+Prototipador is a **product planning and design tool** that helps users define their product vision, sketch out their data shape, design their UI, and prepare export packages for implementation in a separate codebase.
 
-> **Important**: Design OS is a planning tool, not the end product codebase. The screen designs and components generated here are meant to be exported and integrated into your actual product's codebase.
+> **Important**: Prototipador is a planning tool, not the end product codebase. The screen designs and components generated here are meant to be exported and integrated into your actual product's codebase.
 
 ---
 
-## Understanding Design OS Context
+## Understanding Prototipador Context
 
-When working in Design OS, be aware of two distinct contexts:
+When working in Prototipador, be aware of two distinct contexts:
 
-### 1. Design OS Application
-The React application that displays and manages planning files. When modifying the Design OS UI itself:
+### 1. Prototipador Application
+The React application that displays and manages planning files. When modifying the Prototipador UI itself:
 - Files live in `src/` (components, pages, utilities)
-- Uses the Design OS design system (stone palette, DM Sans, etc.)
+- Uses the Prototipador design system (stone palette, DM Sans, etc.)
 - Provides the interface for viewing specs, screen designs, exports, etc.
 
 ### 2. Product Design (Screen Designs & Exports)
@@ -27,29 +27,29 @@ The product you're planning and designing. When creating screen designs and expo
 
 ## Getting Started — The Planning Flow
 
-Design OS follows a structured planning sequence:
+Prototipador follows a structured planning sequence:
 
-### 1. Product Vision (`/product-vision`)
+### 1. Product Vision (`/visao`)
 Define your product overview, roadmap sections, and data shape — all in one conversational flow. After answering clarifying questions, all three files are generated automatically.
 **Output:** `product/product-overview.md`, `product/product-roadmap.md`, `product/data-shape/data-shape.md`
 
-Use `/product-roadmap`, `/data-shape` individually to update those files after initial creation.
+Use `/roadmap`, `/dados` individually to update those files after initial creation.
 
-### 2. Design System (`/design-tokens`)
+### 2. Design System (`/estilo`)
 Choose your color palette (from Tailwind) and typography (from Google Fonts). These tokens are applied to all screen designs.
 **Output:** `product/design-system/colors.json`, `product/design-system/typography.json`
 
-### 3. Application Shell (`/design-shell`)
+### 3. Application Shell (`/estrutura`)
 Design the persistent navigation and layout that wraps all sections.
 **Output:** `product/shell/spec.md`, `src/shell/components/`
 
 ### 4. For Each Section:
-- `/shape-section` — Define the specification and generate sample data + types
-- `/sample-data` — Update sample data and types (if already created)
-- `/design-screen` — Create screen designs
-- `/screenshot-design` — Capture screenshots
+- `/secao` — Define the specification and generate sample data + types
+- `/dados-exemplo` — Update sample data and types (if already created)
+- `/tela` — Create screen designs
+- `/foto` — Capture screenshots
 
-### 5. Export (`/export-product`)
+### 5. Export (`/exportar`)
 Generate the complete export package with all components, types, and handoff documentation.
 **Output:** `product-plan/`
 
@@ -132,7 +132,7 @@ When creating screen designs, follow these guidelines:
 
 ## Tailwind CSS Directives
 
-These rules apply to both the Design OS application and all screen designs/components it generates:
+These rules apply to both the Prototipador application and all screen designs/components it generates:
 
 - **Tailwind CSS v4**: We always use Tailwind CSS v4 (not v3). Do not reference or create v3 patterns.
 
@@ -146,7 +146,7 @@ These rules apply to both the Design OS application and all screen designs/compo
 
 ## The Four Pillars
 
-Design OS is organized around four main areas:
+Prototipador is organized around four main areas:
 
 1. **Product Overview** — The "what" and "why"
    - Product name and description
@@ -174,9 +174,9 @@ Plus **Sections** — The individual features, each with spec, data, screen desi
 
 ## Design System Scope
 
-Design OS separates concerns between its own UI and the product being designed:
+Prototipador separates concerns between its own UI and the product being designed:
 
-- **Design OS UI**: Always uses the stone/lime palette and DM Sans typography
+- **Prototipador UI**: Always uses the stone/lime palette and DM Sans typography
 - **Product Screen Designs**: Use the design tokens defined for the product (when available)
 - **Shell**: Uses product design tokens to preview the full app experience
 
@@ -184,7 +184,7 @@ Design OS separates concerns between its own UI and the product being designed:
 
 ## Export & Handoff
 
-The `/export-product` command generates a UI design handoff package:
+The `/exportar` command generates a UI design handoff package:
 
 - **Ready-to-use prompts**: Pre-written prompts to copy/paste into coding agents
   - `one-shot-prompt.md`: For full implementation in one session
@@ -201,9 +201,9 @@ The handoff focuses on UI designs, product requirements, and user flows. Backend
 
 ---
 
-## Design System (Design OS Application)
+## Design System (Prototipador Application)
 
-The Design OS application itself uses a "Refined Utility" aesthetic:
+The Prototipador application itself uses a "Refined Utility" aesthetic:
 
 - **Typography**: DM Sans for headings and body, IBM Plex Mono for code
 - **Colors**: Stone palette for neutrals (warm grays), lime for accents
