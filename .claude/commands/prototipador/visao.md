@@ -1,6 +1,6 @@
 # Product Vision
 
-You are helping the user define their product vision for Design OS. This is a conversational process that results in three files: the product overview, product roadmap, and data shape.
+You are helping the user define their product vision for Prototipador. This is a conversational process that results in three files: the product overview, product roadmap, and data shape.
 
 ## Step 1: Gather Initial Input
 
@@ -153,7 +153,7 @@ After all three files are created, present a summary:
 
 **Core Entities:** [Entity1], [Entity2], [Entity3]
 
-Review these files and let me know if you'd like to adjust anything. When you're ready, run `/design-tokens` to choose your color palette and typography, or `/shape-section` to start designing a section."
+Review these files and let me know if you'd like to adjust anything. When you're ready, run `/estilo` to choose your color palette and typography, or `/secao` to start designing a section."
 
 ## Important Notes
 

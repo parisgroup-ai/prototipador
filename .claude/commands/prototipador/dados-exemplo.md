@@ -12,7 +12,7 @@ If there's only one section, auto-select it. If there are multiple sections, use
 
 Then check if `product/sections/[section-id]/spec.md` exists. If it doesn't:
 
-"I don't see a specification for **[Section Title]** yet. Please run `/shape-section` first to define the section's requirements, then come back to generate sample data."
+"I don't see a specification for **[Section Title]** yet. Please run `/secao` first to define the section's requirements, then come back to generate sample data."
 
 Stop here if the spec doesn't exist.
 
@@ -30,7 +30,7 @@ Wait for the user's response describing what they want changed. Once you receive
 
 After updating, inform the user:
 
-"I've updated the sample data and types for **[Section Title]** based on your feedback. Review the changes and let me know if you'd like further adjustments, or run `/design-screen` when you're ready."
+"I've updated the sample data and types for **[Section Title]** based on your feedback. Review the changes and let me know if you'd like further adjustments, or run `/tela` when you're ready."
 
 Stop here — the remaining steps below are for generating new data from scratch.
 
@@ -48,7 +48,7 @@ Check if `/product/data-shape/data-shape.md` exists.
 **If it doesn't exist:**
 Show a warning but continue:
 
-"Note: A global data shape hasn't been defined yet. I'll create entity structures based on the section spec, but for consistency across sections, consider running `/data-shape` first."
+"Note: A global data shape hasn't been defined yet. I'll create entity structures based on the section spec, but for consistency across sections, consider running `/dados` first."
 
 ## Step 4: Analyze and Generate
 
@@ -67,7 +67,7 @@ Read and analyze `product/sections/[section-id]/spec.md` to understand:
 
 Create the data file with:
 
-- **A `_meta` section** - Human-readable descriptions of each entity and how they relate in the UI (displayed in the Design OS interface)
+- **A `_meta` section** - Human-readable descriptions of each entity and how they relate in the UI (displayed in the Prototipador interface)
 - **Realistic sample data** - Use believable names, dates, descriptions, etc.
 - **Varied content** - Mix short and long text, different statuses, etc.
 - **Edge cases** - Include at least one empty array, one long description, etc.
@@ -217,7 +217,7 @@ The types include:
 - `[Entity]` - The main data type
 - `[SectionName]Props` - Props interface for the component (includes callbacks for [list actions])
 
-Review the files and let me know if you'd like any adjustments. When you're ready, run `/design-screen` to create the screen design for this section."
+Review the files and let me know if you'd like any adjustments. When you're ready, run `/tela` to create the screen design for this section."
 
 ## Important Notes
 

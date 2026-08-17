@@ -6,7 +6,7 @@ You are helping the user define the specification for a section of their product
 
 First, verify that `/product/product-roadmap.md` exists. If it doesn't:
 
-"I don't see a product roadmap defined yet. Please run `/product-roadmap` first to define your product sections, then come back to shape individual sections."
+"I don't see a product roadmap defined yet. Please run `/roadmap` first to define your product sections, then come back to shape individual sections."
 
 Stop here if the roadmap doesn't exist.
 
@@ -155,7 +155,7 @@ Here's a quick summary of the spec:
 
 **Sample data includes:** [Brief description of entities and record counts]
 
-Feel free to review these files. Let me know if you'd like to adjust anything in the spec or sample data. When you're ready, run `/design-screen` to create the screen design for this section."
+Feel free to review these files. Let me know if you'd like to adjust anything in the spec or sample data. When you're ready, run `/tela` to create the screen design for this section."
 
 ## Important Notes
 

@@ -10,7 +10,7 @@ Read `/product/product-overview.md` to understand what the product is.
 
 If it doesn't exist:
 
-"Before defining your design system, you'll need to establish your product vision. Please run `/product-vision` first."
+"Before defining your design system, you'll need to establish your product vision. Please run `/visao` first."
 
 Stop here if the prerequisite is missing.
 
@@ -138,7 +138,7 @@ Let the user know:
 
 These will be used when creating screen designs for your sections.
 
-Next step: Run `/design-shell` to design your application's navigation and layout."
+Next step: Run `/estrutura` to design your application's navigation and layout."
 
 ## Reference: Tailwind Color Palette
 
@@ -163,4 +163,4 @@ Available colors (each has shades 50-950):
 - Fonts should be exact Google Fonts names
 - Keep suggestions contextual to the product type
 - The mono font is optional but recommended for any product with code/technical content
-- Design tokens apply to screen designs only — the Design OS app keeps its own aesthetic
+- Design tokens apply to screen designs only — the Prototipador app keeps its own aesthetic

@@ -1,6 +1,6 @@
 # Product Roadmap
 
-You are helping the user create or update their product roadmap for Design OS.
+You are helping the user create or update their product roadmap for Prototipador.
 
 ## Step 1: Check Current State
 
@@ -40,7 +40,7 @@ Stop here — the remaining steps below are for generating a new roadmap from sc
 
 Read `/product/product-overview.md`. If it doesn't exist:
 
-"Before creating a product roadmap, you'll need to define your product vision. Please run `/product-vision` first."
+"Before creating a product roadmap, you'll need to define your product vision. Please run `/visao` first."
 
 Stop here if the product overview is missing.
 
@@ -81,7 +81,7 @@ Use this exact format:
 2. **[Section 2]** — [Description]
 3. **[Section 3]** — [Description]
 
-Review the sections and let me know if you'd like to adjust anything. When you're ready, run `/data-shape` to sketch out the general shape of your product's data."
+Review the sections and let me know if you'd like to adjust anything. When you're ready, run `/dados` to sketch out the general shape of your product's data."
 
 ---
 

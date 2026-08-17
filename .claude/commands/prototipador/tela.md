@@ -18,11 +18,11 @@ Then verify all required files exist:
 
 If spec.md doesn't exist:
 
-"I don't see a specification for **[Section Title]** yet. Please run `/shape-section` first to define the section's requirements."
+"I don't see a specification for **[Section Title]** yet. Please run `/secao` first to define the section's requirements."
 
 If data.json or types.ts don't exist:
 
-"I don't see sample data for **[Section Title]** yet. Please run `/sample-data` first to create sample data and types for the screen designs."
+"I don't see sample data for **[Section Title]** yet. Please run `/dados-exemplo` first to create sample data and types for the screen designs."
 
 Stop here if any file is missing.
 
@@ -36,14 +36,14 @@ Check for optional enhancements:
 
 If design tokens exist, read them and use them for styling. If they don't exist, show a warning:
 
-"Note: Design tokens haven't been defined yet. I'll use default styling, but for consistent branding, consider running `/design-tokens` first."
+"Note: Design tokens haven't been defined yet. I'll use default styling, but for consistent branding, consider running `/estilo` first."
 
 **Shell:**
 - Check if `src/shell/components/AppShell.tsx` exists
 
-If shell exists, the screen design will render inside the shell in Design OS. If not, show a warning:
+If shell exists, the screen design will render inside the shell in Prototipador. If not, show a warning:
 
-"Note: An application shell hasn't been designed yet. The screen design will render standalone. Consider running `/design-shell` first to see section screen designs in the full app context."
+"Note: An application shell hasn't been designed yet. The screen design will render standalone. Consider running `/estrutura` first to see section screen designs in the full app context."
 
 ## Step 3: Analyze Requirements
 
@@ -144,7 +144,7 @@ export function InvoiceList({
 - The fonts will be applied at the app level, but use appropriate font weights
 
 **If design tokens don't exist:**
-- Fall back to `stone` for neutrals and `lime` for accents (Design OS defaults)
+- Fall back to `stone` for neutrals and `lime` for accents (Prototipador defaults)
 
 ### What to Include
 
@@ -222,7 +222,7 @@ export function InvoiceList({ invoices, onView, onEdit, onDelete }: InvoiceListP
 
 Create a preview wrapper at `src/sections/[section-id]/[ViewName].tsx` (note: this is in the section root, not in components/).
 
-This wrapper is what Design OS renders. It imports the sample data and feeds it to the props-based component.
+This wrapper is what Prototipador renders. It imports the sample data and feeds it to the props-based component.
 
 Example:
 
@@ -245,11 +245,11 @@ export default function InvoiceListPreview() {
 
 The preview wrapper:
 
-- Has a `default` export (required for Design OS routing)
+- Has a `default` export (required for Prototipador routing)
 - Imports sample data from data.json
 - Passes data to the component via props
 - Provides console.log handlers for callbacks (for testing interactions)
-- Is NOT exported to the user's codebase - it's only for Design OS
+- Is NOT exported to the user's codebase - it's only for Prototipador
 - **Will render inside the shell** if one has been designed
 
 ## Step 9: Create Component Index
@@ -276,7 +276,7 @@ Let the user know:
 - `src/sections/[section-id]/components/[SubComponent].tsx` (if created)
 - `src/sections/[section-id]/components/index.ts`
 
-**Preview wrapper** (for Design OS only):
+**Preview wrapper** (for Prototipador only):
 
 - `src/sections/[section-id]/[ViewName].tsx`
 
@@ -288,13 +288,13 @@ Let the user know:
 
 **Next steps:**
 
-- Run `/screenshot-design` to capture a screenshot of this screen design for documentation
-- If the spec calls for additional views, run `/design-screen` again to create them
-- When all sections are complete, run `/export-product` to generate the complete export package"
+- Run `/foto` to capture a screenshot of this screen design for documentation
+- If the spec calls for additional views, run `/tela` again to create them
+- When all sections are complete, run `/exportar` to generate the complete export package"
 
 If the spec indicates additional views are needed:
 
-"The specification also calls for [other view(s)]. Run `/design-screen` again to create those, then `/screenshot-design` to capture each one."
+"The specification also calls for [other view(s)]. Run `/tela` again to create those, then `/foto` to capture each one."
 
 ## Important Notes
 
@@ -306,4 +306,4 @@ If the spec indicates additional views are needed:
 - Always remind the user to restart the dev server after creating files
 - Sub-components should also be props-based for maximum portability
 - Apply design tokens when available for consistent branding
-- Screen designs render inside the shell when viewed in Design OS (if shell exists)
+- Screen designs render inside the shell when viewed in Prototipador (if shell exists)

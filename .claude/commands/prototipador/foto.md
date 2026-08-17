@@ -15,7 +15,7 @@ To capture screenshots, I need the Playwright MCP server installed. Please run:
 claude mcp add playwright npx @playwright/mcp@latest
 ```
 
-Then restart this Claude Code session and run `/screenshot-design` again.
+Then restart this Claude Code session and run `/foto` again.
 ---
 
 Do not substitute different package names or modify the command. Output it exactly as written above.

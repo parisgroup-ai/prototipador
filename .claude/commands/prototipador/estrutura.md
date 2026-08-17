@@ -13,14 +13,14 @@ First, verify prerequisites exist:
 If overview or roadmap are missing:
 
 "Before designing the shell, you need to define your product and sections. Please run:
-1. `/product-vision` — Define your product
-2. `/product-roadmap` — Define your sections"
+1. `/visao` — Define your product
+2. `/roadmap` — Define your sections"
 
 Stop here if overview or roadmap are missing.
 
 If design tokens are missing, show a warning but continue:
 
-"Note: Design tokens haven't been defined yet. I'll proceed with default styling, but you may want to run `/design-tokens` first for consistent colors and typography."
+"Note: Design tokens haven't been defined yet. I'll proceed with default styling, but you may want to run `/estilo` first for consistent colors and typography."
 
 ## Step 2: Analyze Product Structure
 
@@ -149,7 +149,7 @@ Export all components.
 
 ## Step 7: Create Shell Preview
 
-Create `src/shell/ShellPreview.tsx` — a preview wrapper for viewing the shell in Design OS:
+Create `src/shell/ShellPreview.tsx` — a preview wrapper for viewing the shell in Prototipador:
 
 ```tsx
 import data from '@/../product/sections/[first-section]/data.json' // if exists
@@ -224,15 +224,15 @@ Let the user know:
 
 **Important:** Restart your dev server to see the changes.
 
-When you design section screens with `/design-screen`, they will render inside this shell, showing the full app experience.
+When you design section screens with `/tela`, they will render inside this shell, showing the full app experience.
 
-Next: Run `/shape-section` to start designing your first section."
+Next: Run `/secao` to start designing your first section."
 
 ## Important Notes
 
 - The shell is a screen design — it demonstrates the navigation and layout design
 - Components are props-based and portable to the user's codebase
-- The preview wrapper is for Design OS only — not exported
+- The preview wrapper is for Prototipador only — not exported
 - Apply design tokens when available for consistent styling
 - Keep the shell focused on navigation chrome — no authentication UI
 - Section screen designs will render inside the shell's content area

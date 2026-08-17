@@ -48,7 +48,7 @@ Read:
 
 If either file is missing, let the user know:
 
-"Before defining your data shape, you'll need to establish your product vision. Please run `/product-vision` first."
+"Before defining your data shape, you'll need to establish your product vision. Please run `/visao` first."
 
 Stop here if prerequisites are missing.
 
@@ -94,9 +94,9 @@ Create `/product/data-shape/data-shape.md` with this format:
 **Relationships:**
 - [List key relationships]
 
-This provides a shared vocabulary for your screen designs. When you run `/sample-data`, it will reference these entities to ensure consistent naming across sections.
+This provides a shared vocabulary for your screen designs. When you run `/dados-exemplo`, it will reference these entities to ensure consistent naming across sections.
 
-Review and let me know if you'd like to adjust anything. When you're ready, run `/design-tokens` to choose your color palette and typography."
+Review and let me know if you'd like to adjust anything. When you're ready, run `/estilo` to choose your color palette and typography."
 
 ---
 
