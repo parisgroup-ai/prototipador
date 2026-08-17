@@ -1,54 +1,37 @@
-<img width="1280" height="640" alt="Design OS" src="https://github.com/user-attachments/assets/a9c04258-7b9a-45b6-8475-3431cdf5dbe9" />
+# Prototipador
 
-## The missing design process between your idea and your codebase.
+**Prototipador é o Design OS da imersão Paris Group** — um fork literal de [buildermethods/design-os](https://github.com/buildermethods/design-os), com os comandos renomeados para pt-BR e o branding da Paris Group. A estrutura, o processo e as features são exatamente as do upstream.
 
-[Design OS](https://buildermethods.com/design-os) is a product planning and design tool that helps you define your product vision, sketch out your data shape, design your UI, and export production-ready components for implementation. Rather than jumping straight into code, you work through a guided process that captures what you're building and why—then hands off everything your coding agent needs to build it right.
+O Prototipador guia você da ideia ao pacote de handoff: visão do produto → roadmap → dados → estilo → estrutura (shell) → telas por seção → export com componentes React prontos para implementação.
 
-## The Problem
+## Como usar
 
-AI coding tools are incredible at building fast. But the results often miss the mark. You describe what you want, the agent builds *something*, but it's not what you envisioned. The UI looks generic. Features get half-implemented. You spend as much time fixing and redirecting as you would have spent building.
+```bash
+git clone https://github.com/parisgroup-ai/prototipador meu-produto-prototipo
+cd meu-produto-prototipo
+npm install
+npm run dev   # abre o preview em http://localhost:5173
+```
 
-**The core issue:** we're asking coding agents to figure out what to build *and* build it simultaneously. Design decisions get made on the fly, buried in code, impossible to adjust without starting over. There's no spec. No shared understanding. No source of truth for what "done" looks like.
+Depois abra a pasta no **Claude Code** e rode `/visao` para começar a definir seu produto. Cada comando é uma conversa: a IA pergunta, você direciona.
 
-## The Design OS Process
+## Mapeamento de comandos (upstream → pt-BR)
 
-Design OS powers a guided design and architecture process. You + AI, working together through structured steps:
+| Design OS (upstream) | Prototipador | O que faz |
+|---|---|---|
+| `/product-vision` | `/visao` | Define visão, roadmap e shape de dados em um fluxo |
+| `/product-roadmap` | `/roadmap` | Atualiza as seções do produto |
+| `/data-shape` | `/dados` | Atualiza entidades e relações |
+| `/design-tokens` | `/estilo` | Escolhe cores e tipografia |
+| `/design-shell` | `/estrutura` | Desenha navegação e layout (shell) |
+| `/shape-section` | `/secao` | Especifica uma seção + gera dados de exemplo e types |
+| `/sample-data` | `/dados-exemplo` | Atualiza dados de exemplo e types |
+| `/design-screen` | `/tela` | Cria as telas (componentes React) |
+| `/screenshot-design` | `/foto` | Captura screenshot de uma tela |
+| `/export-product` | `/exportar` | Gera o pacote completo de handoff |
 
-1. **Product Planning** — Define your vision, break down your roadmap, and model your data
-2. **Design System** — Choose colors, typography, and design your application shell
-3. **Section Design** — For each feature area: specify requirements, generate sample data, and design the screens
-4. **Export** — Generate a complete handoff package for implementation
+Os artefatos gerados (`product/`, `product-plan/`) mantêm a estrutura original do upstream — só os nomes dos comandos mudaram.
 
-Each step is a conversation. The AI asks questions, you provide direction, and together you shape a product that matches your vision—before any implementation begins.
+## Créditos e licença
 
----
-
-## Documentation & Installation
-
-Docs, installation, usage, & best practices 👉 [It's all here](https://buildermethods.com/design-os)
-
----
-
-## Support, Training & Community
-
-For official support, training, and community as you use Design OS—for yourself or with your team, consider joining _Builder Methods Pro_. You'll get access to Brian Casel (the creator) for questions, a community of builders using Design OS, plus all Builder Methods workshops and training on AI-first development.
-
-👉 [Join Builder Methods Pro](https://buildermethods.com/pro)
-
----
-
-## Follow updates & releases
-
-Read the [changelog](CHANGELOG.md)
-
-[Subscribe to be notified of major new releases of Design OS](https://buildermethods.com/design-os)
-
----
-
-## Created by Brian Casel @ Builder Methods
-
-Created by Brian Casel, the creator of [Builder Methods](https://buildermethods.com), where Brian helps professional software developers and teams build with AI.
-
-Get Brian's free resources on building with AI:
-- [Builder Briefing newsletter](https://buildermethods.com)
-- [YouTube](https://youtube.com/@briancasel)
+Design OS foi criado por **Brian Casel** @ [Builder Methods](https://buildermethods.com) — documentação original em [buildermethods.com/design-os](https://buildermethods.com/design-os). Este fork mantém a licença MIT do projeto original ([LICENSE](LICENSE), © 2025 CasJam Media LLC / Builder Methods).
