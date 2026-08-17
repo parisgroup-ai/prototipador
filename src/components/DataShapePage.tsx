@@ -97,7 +97,7 @@ export function DataShapePage() {
               <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-3">
                 <p className="text-sm text-stone-600 dark:text-stone-400">
                   To update the data shape, run{' '}
-                  <code className="font-mono text-stone-800 dark:text-stone-200">/data-shape</code>{' '}
+                  <code className="font-mono text-stone-800 dark:text-stone-200">/dados</code>{' '}
                   or edit the file directly at{' '}
                   <code className="font-mono text-stone-800 dark:text-stone-200">
                     product/data-shape/data-shape.md

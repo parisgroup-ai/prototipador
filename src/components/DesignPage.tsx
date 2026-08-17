@@ -154,7 +154,7 @@ export function DesignPage() {
                 {/* Edit hint */}
                 <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5">
                   <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/design-tokens</code> to update
+                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/estilo</code> to update
                   </p>
                 </div>
               </CardContent>
@@ -231,7 +231,7 @@ export function DesignPage() {
                 {/* Edit hint */}
                 <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5">
                   <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/design-shell</code> to update
+                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/estrutura</code> to update
                   </p>
                 </div>
               </CardContent>

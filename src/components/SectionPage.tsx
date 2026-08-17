@@ -164,7 +164,7 @@ export function SectionPage() {
                       Run in Claude Code:
                     </p>
                     <code className="text-sm font-mono text-stone-700 dark:text-stone-300">
-                      /screenshot-design
+                      /foto
                     </code>
                   </div>
                 </div>

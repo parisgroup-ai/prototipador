@@ -1,5 +1,6 @@
 {
-  "name": "design-os",
+  "name": "prototipador",
+  "description": "Prototipador — o Design OS da imersão Paris Group (fork de buildermethods/design-os)",
   "private": true,
   "version": "0.0.0",
   "type": "module",

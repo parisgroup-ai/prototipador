@@ -55,8 +55,8 @@ export function ExportPage() {
               <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
                 {requiredComplete ? (
                   <>
-                    <div className="w-6 h-6 rounded-full bg-lime-100 dark:bg-lime-900/30 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-lime-600 dark:text-lime-400" strokeWidth={2.5} />
+                    <div className="w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                      <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" strokeWidth={2.5} />
                     </div>
                     Ready to Export
                   </>
@@ -93,8 +93,8 @@ export function ExportPage() {
               <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
                 {exportZipAvailable ? (
                   <>
-                    <div className="w-6 h-6 rounded-full bg-lime-100 dark:bg-lime-900/30 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-lime-600 dark:text-lime-400" strokeWidth={2.5} />
+                    <div className="w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                      <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" strokeWidth={2.5} />
                     </div>
                     Export Package is Ready
                   </>
@@ -106,9 +106,9 @@ export function ExportPage() {
             <CardContent className="space-y-6">
               {exportZipAvailable && exportZipUrl ? (
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 bg-lime-50 dark:bg-lime-900/20 rounded-lg border border-lime-200 dark:border-lime-800">
-                    <div className="w-10 h-10 rounded-full bg-lime-100 dark:bg-lime-900/40 flex items-center justify-center shrink-0">
-                      <Package className="w-5 h-5 text-lime-600 dark:text-lime-400" strokeWidth={1.5} />
+                  <div className="flex items-center gap-3 p-4 bg-violet-50 dark:bg-violet-900/20 rounded-lg border border-violet-200 dark:border-violet-800">
+                    <div className="w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center shrink-0">
+                      <Package className="w-5 h-5 text-violet-600 dark:text-violet-400" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-stone-900 dark:text-stone-100">
@@ -121,14 +121,14 @@ export function ExportPage() {
                     <a
                       href={exportZipUrl}
                       download="product-plan.zip"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-lime-600 hover:bg-lime-700 text-white font-medium text-sm rounded-md transition-colors shrink-0"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white font-medium text-sm rounded-md transition-colors shrink-0"
                     >
                       <Download className="w-4 h-4" strokeWidth={2} />
                       Download
                     </a>
                   </div>
                   <p className="text-sm text-stone-500 dark:text-stone-400">
-                    To regenerate, run <code className="font-mono text-stone-700 dark:text-stone-300">/export-product</code> again.
+                    To regenerate, run <code className="font-mono text-stone-700 dark:text-stone-300">/exportar</code> again.
                   </p>
                 </div>
               ) : (
@@ -138,7 +138,7 @@ export function ExportPage() {
                   </p>
                   <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-3">
                     <code className="text-sm font-mono text-stone-800 dark:text-stone-200">
-                      /export-product
+                      /exportar
                     </code>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 /**
- * Section types for Design OS v2
+ * Section types for Prototipador v2
  */
 
 export interface SectionData {
