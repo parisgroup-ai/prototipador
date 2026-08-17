@@ -52,11 +52,12 @@ export function ProductPage() {
       <div className="space-y-6">
         {/* Page intro */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
-            Product Definition
+          <div className="paris-eyebrow mb-1.5">Prototipador · Fase 1 de 5</div>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
+            Definição do produto
           </h1>
-          <p className="text-stone-600 dark:text-stone-400">
-            Define your product vision and break it into development sections.
+          <p className="text-white/60">
+            Defina a visão do seu produto e quebre em seções de desenvolvimento.
           </p>
         </div>
 

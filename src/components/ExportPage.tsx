@@ -38,47 +38,48 @@ export function ExportPage() {
       <div className="space-y-6">
         {/* Page intro */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
-            {exportZipAvailable ? 'Ready for implementation!' : 'Export'}
+          <div className="paris-eyebrow mb-1.5">Prototipador · Fase 5 de 5</div>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
+            {exportZipAvailable ? 'Pronto pra virar produto!' : 'Exportar'}
           </h1>
-          <p className="text-stone-600 dark:text-stone-400">
+          <p className="text-white/60">
             {exportZipAvailable
-              ? 'Download your product design package and implement it in your codebase using the provided handoff prompts and assets.'
-              : 'Generate a complete handoff package for your development team.'}
+              ? 'Baixe o pacote do seu produto e implemente no seu repositório com os prompts e assets que ele traz.'
+              : 'Gere o pacote completo pra virar implementação de verdade.'}
           </p>
         </div>
 
         {/* Status - only show if zip not available */}
         {!exportZipAvailable && (
-          <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+          <Card className="border-white/[0.06] shadow-sm">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+              <CardTitle className="text-lg font-semibold text-white flex items-center gap-2">
                 {requiredComplete ? (
                   <>
-                    <div className="w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" strokeWidth={2.5} />
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] flex items-center justify-center shadow-sm shadow-[#8B5CF6]/30">
+                      <Check className="w-4 h-4 text-white" strokeWidth={2.5} />
                     </div>
-                    Ready to Export
+                    Pronto pra exportar
                   </>
                 ) : (
                   <>
-                    <div className="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                      <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" strokeWidth={2.5} />
+                    <div className="w-6 h-6 rounded-full bg-amber-400/15 border border-amber-400/30 flex items-center justify-center">
+                      <AlertTriangle className="w-4 h-4 text-amber-300" strokeWidth={2.5} />
                     </div>
-                    Not Ready
+                    Ainda falta coisa
                   </>
                 )}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-1">
-                <ChecklistItem label="Product Overview" isComplete={hasOverview} />
-                <ChecklistItem label="Product Roadmap" isComplete={hasRoadmap} />
-                <ChecklistItem label="Data Shape" isComplete={hasDataShape} />
-                <ChecklistItem label="Design System" isComplete={hasDesignSystem} />
-                <ChecklistItem label="Application Shell" isComplete={hasShell} />
+                <ChecklistItem label="Visão do produto" isComplete={hasOverview} />
+                <ChecklistItem label="Roadmap" isComplete={hasRoadmap} />
+                <ChecklistItem label="Estrutura de dados" isComplete={hasDataShape} />
+                <ChecklistItem label="Estilo" isComplete={hasDesignSystem} />
+                <ChecklistItem label="Estrutura do app" isComplete={hasShell} />
                 <ChecklistItem
-                  label={`Sections with screen designs (${sectionStats.sectionsWithScreenDesigns}/${sectionStats.sectionCount})`}
+                  label={`Seções com telas desenhadas (${sectionStats.sectionsWithScreenDesigns}/${sectionStats.sectionCount})`}
                   isComplete={hasSections}
                 />
               </div>
@@ -88,56 +89,56 @@ export function ExportPage() {
 
         {/* Export command */}
         {requiredComplete && (
-          <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+          <Card className="border-white/[0.06] shadow-sm">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+              <CardTitle className="text-lg font-semibold text-white flex items-center gap-2">
                 {exportZipAvailable ? (
                   <>
-                    <div className="w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-violet-600 dark:text-violet-400" strokeWidth={2.5} />
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] flex items-center justify-center shadow-sm shadow-[#8B5CF6]/30">
+                      <Check className="w-4 h-4 text-white" strokeWidth={2.5} />
                     </div>
-                    Export Package is Ready
+                    Pacote de exportação pronto
                   </>
                 ) : (
-                  'Generate Export Package'
+                  'Gerar o pacote de exportação'
                 )}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {exportZipAvailable && exportZipUrl ? (
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 bg-violet-50 dark:bg-violet-900/20 rounded-lg border border-violet-200 dark:border-violet-800">
-                    <div className="w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center shrink-0">
-                      <Package className="w-5 h-5 text-violet-600 dark:text-violet-400" strokeWidth={1.5} />
+                  <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-[#4F6AFF]/[0.08] to-[#8B5CF6]/[0.08] rounded-xl border border-[#8B5CF6]/25">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4F6AFF]/20 to-[#8B5CF6]/20 border border-white/[0.06] flex items-center justify-center shrink-0">
+                      <Package className="w-5 h-5 text-[#a0b4ff]" strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-stone-900 dark:text-stone-100">
-                        Download & use in your codebase
+                      <p className="font-medium text-white">
+                        Baixe e use no seu repositório
                       </p>
-                      <p className="text-sm text-stone-500 dark:text-stone-400">
+                      <p className="text-sm text-white/40">
                         product-plan.zip
                       </p>
                     </div>
                     <a
                       href={exportZipUrl}
                       download="product-plan.zip"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white font-medium text-sm rounded-md transition-colors shrink-0"
+                      className="paris-cta inline-flex items-center gap-2 px-4 py-2 font-medium text-sm rounded-lg shrink-0"
                     >
-                      <Download className="w-4 h-4" strokeWidth={2} />
-                      Download
+                      <Download className="relative z-10 w-4 h-4" strokeWidth={2} />
+                      <span className="relative z-10">Baixar</span>
                     </a>
                   </div>
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
-                    To regenerate, run <code className="font-mono text-stone-700 dark:text-stone-300">/exportar</code> again.
+                  <p className="text-sm text-white/40">
+                    Pra gerar de novo, rode <code className="font-mono text-[#a0b4ff]">/exportar</code> outra vez.
                   </p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <p className="text-stone-600 dark:text-stone-400">
-                    Run the following command to generate a complete export package with all components, types, and handoff documentation:
+                  <p className="text-white/65">
+                    Rode o comando abaixo no Claude Code pra gerar o pacote completo, com componentes, tipos e a documentação de implementação:
                   </p>
-                  <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-3">
-                    <code className="text-sm font-mono text-stone-800 dark:text-stone-200">
+                  <div className="bg-white/[0.04] rounded-md px-4 py-3">
+                    <code className="text-sm font-mono text-[#a0b4ff]">
                       /exportar
                     </code>
                   </div>
@@ -145,40 +146,40 @@ export function ExportPage() {
               )}
 
               {/* What's included */}
-              <div className="pt-4 border-t border-stone-200 dark:border-stone-700">
-                <h4 className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-4 flex items-center gap-2">
+              <div className="pt-4 border-t border-white/[0.06]">
+                <h4 className="text-sm font-medium text-white/40 uppercase tracking-wide mb-4 flex items-center gap-2">
                   <FolderTree className="w-4 h-4" strokeWidth={1.5} />
-                  What's Included
+                  O que vem no pacote
                 </h4>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <ExportItem
-                    title="Ready-to-Use Prompts"
-                    description="Pre-written prompts to copy/paste into your coding agent."
+                    title="Prompts prontos"
+                    description="Prompts prontos pra copiar e colar no seu agente de código."
                     items={['one-shot-prompt.md', 'section-prompt.md']}
                   />
                   <ExportItem
-                    title="Instructions"
-                    description="Detailed implementation guides for your coding agent."
+                    title="Instruções"
+                    description="Guias detalhados de implementação pro seu agente de código."
                     items={['product-overview.md', 'one-shot-instructions.md', 'incremental/ (milestones)']}
                   />
                   <ExportItem
-                    title="Design System"
-                    description="Colors, typography, and styling configuration for consistent branding."
+                    title="Estilo"
+                    description="Cores, tipografia e configuração de estilo pra manter a marca consistente."
                     items={['CSS tokens', 'Tailwind config', 'Font setup']}
                   />
                   <ExportItem
-                    title="Data Shape"
-                    description="Entity definitions and sample data for your application."
+                    title="Estrutura de dados"
+                    description="Definição das entidades e dados de exemplo do seu app."
                     items={['TypeScript types', 'Sample data', 'Entity docs']}
                   />
                   <ExportItem
-                    title="Components"
-                    description="React components and visual references for each section."
+                    title="Componentes"
+                    description="Componentes React e referências visuais de cada seção."
                     items={['Shell components', 'Section components', 'Screenshots']}
                   />
                   <ExportItem
-                    title="Test Instructions"
-                    description="Framework-agnostic test specs for TDD implementation."
+                    title="Instruções de teste"
+                    description="Especificações de teste (independentes de framework) pra implementar com TDD."
                     items={['tests.md per section', 'User flow tests', 'Empty state tests']}
                   />
                 </div>
@@ -188,11 +189,11 @@ export function ExportPage() {
         )}
 
         {/* How to use */}
-        <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+        <Card className="border-white/[0.06] shadow-sm">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-stone-500 dark:text-stone-400" strokeWidth={1.5} />
-              How to Use the Export
+            <CardTitle className="text-lg font-semibold text-white flex items-center gap-2">
+              <FileText className="w-5 h-5 text-white/40" strokeWidth={1.5} />
+              Como usar o pacote
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -200,64 +201,64 @@ export function ExportPage() {
             <Collapsible>
               <CollapsibleTrigger className="flex items-start justify-between w-full text-left group">
                 <div className="flex-1">
-                  <h4 className="font-medium text-stone-900 dark:text-stone-100">
-                    Option A: Incremental (Recommended)
+                  <h4 className="font-medium text-white">
+                    Opção A: incremental (recomendada)
                   </h4>
-                  <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
-                    Build milestone by milestone for better control and easier debugging.
+                  <p className="text-sm text-white/40 mt-1">
+                    Construa marco a marco — mais controle e muito mais fácil de depurar.
                   </p>
                 </div>
-                <ChevronDown className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-1 shrink-0 transition-transform group-data-[state=open]:rotate-180" strokeWidth={1.5} />
+                <ChevronDown className="w-4 h-4 text-white/40 mt-1 shrink-0 transition-transform group-data-[state=open]:rotate-180" strokeWidth={1.5} />
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <ol className="text-sm text-stone-600 dark:text-stone-400 space-y-2 list-decimal list-inside mt-4 pl-1">
-                  <li>Copy the <code className="font-mono text-stone-800 dark:text-stone-200">product-plan/</code> folder into your codebase</li>
-                  <li>Start with Shell (<code className="font-mono text-stone-800 dark:text-stone-200">instructions/incremental/01-shell.md</code>) — design tokens + app shell</li>
+                <ol className="text-sm text-white/65 space-y-2 list-decimal list-inside mt-4 pl-1">
+                  <li>Copie a pasta <code className="font-mono text-white/85">product-plan/</code> pro seu repositório</li>
+                  <li>Comece pela estrutura (<code className="font-mono text-white/85">instructions/incremental/01-shell.md</code>) — estilo + casca do app</li>
                   <li>
-                    For each section:
+                    Pra cada seção:
                     <ul className="mt-1.5 ml-5 space-y-1">
                       <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500" />
-                        Open <code className="font-mono text-stone-800 dark:text-stone-200">prompts/section-prompt.md</code>
+                        <span className="w-1 h-1 rounded-full bg-white/30" />
+                        Abra <code className="font-mono text-white/85">prompts/section-prompt.md</code>
                       </li>
                       <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500" />
-                        Fill in the section variables at the top (SECTION_NAME, SECTION_ID, NN)
+                        <span className="w-1 h-1 rounded-full bg-white/30" />
+                        Preencha as variáveis do topo (SECTION_NAME, SECTION_ID, NN)
                       </li>
                       <li className="flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500" />
-                        Copy/paste the prompt into your AI coding agent
+                        <span className="w-1 h-1 rounded-full bg-white/30" />
+                        Copie e cole o prompt no seu agente de código
                       </li>
                     </ul>
                   </li>
-                  <li>Review and test after each milestone before moving to the next</li>
+                  <li>Revise e teste cada marco antes de avançar pro próximo</li>
                 </ol>
               </CollapsibleContent>
             </Collapsible>
 
-            <div className="border-t border-stone-200 dark:border-stone-700" />
+            <div className="border-t border-white/[0.06]" />
 
             {/* Option B - One-Shot */}
             <Collapsible>
               <CollapsibleTrigger className="flex items-start justify-between w-full text-left group">
                 <div className="flex-1">
-                  <h4 className="font-medium text-stone-900 dark:text-stone-100">
-                    Option B: One-Shot
+                  <h4 className="font-medium text-white">
+                    Opção B: de uma vez só
                   </h4>
-                  <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
-                    Build the entire app in one session using a pre-written prompt.
+                  <p className="text-sm text-white/40 mt-1">
+                    Construa o app inteiro numa sessão só, com um prompt pronto.
                   </p>
                 </div>
-                <ChevronDown className="w-4 h-4 text-stone-400 dark:text-stone-500 mt-1 shrink-0 transition-transform group-data-[state=open]:rotate-180" strokeWidth={1.5} />
+                <ChevronDown className="w-4 h-4 text-white/40 mt-1 shrink-0 transition-transform group-data-[state=open]:rotate-180" strokeWidth={1.5} />
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <ol className="text-sm text-stone-600 dark:text-stone-400 space-y-2 list-decimal list-inside mt-4 pl-1">
-                  <li>Copy the <code className="font-mono text-stone-800 dark:text-stone-200">product-plan/</code> folder into your codebase</li>
-                  <li>Open <code className="font-mono text-stone-800 dark:text-stone-200">prompts/one-shot-prompt.md</code></li>
-                  <li>Add any additional notes to the prompt (tech stack preferences, etc.)</li>
-                  <li>Copy/paste the prompt into your AI coding agent</li>
-                  <li>Answer the agent's clarifying questions about auth, user modeling, etc.</li>
-                  <li>Let the agent plan and implement everything</li>
+                <ol className="text-sm text-white/65 space-y-2 list-decimal list-inside mt-4 pl-1">
+                  <li>Copie a pasta <code className="font-mono text-white/85">product-plan/</code> pro seu repositório</li>
+                  <li>Abra <code className="font-mono text-white/85">prompts/one-shot-prompt.md</code></li>
+                  <li>Acrescente o que quiser ao prompt (stack preferida etc.)</li>
+                  <li>Copie e cole o prompt no seu agente de código</li>
+                  <li>Responda as perguntas do agente (auth, modelagem de usuário etc.)</li>
+                  <li>Deixe o agente planejar e implementar tudo</li>
                 </ol>
               </CollapsibleContent>
             </Collapsible>
@@ -277,13 +278,13 @@ function ChecklistItem({ label, isComplete }: ChecklistItemProps) {
   return (
     <div className="flex items-center gap-2 py-1">
       {isComplete ? (
-        <div className="w-4 h-4 rounded bg-stone-200 dark:bg-stone-700 flex items-center justify-center">
-          <Check className="w-2.5 h-2.5 text-stone-600 dark:text-stone-400" strokeWidth={3} />
+        <div className="w-4 h-4 rounded bg-white/[0.08] flex items-center justify-center">
+          <Check className="w-2.5 h-2.5 text-white/65" strokeWidth={3} />
         </div>
       ) : (
-        <div className="w-4 h-4 rounded border-2 border-amber-400 dark:border-amber-500" />
+        <div className="w-4 h-4 rounded border-2 border-amber-400/60" />
       )}
-      <span className="text-sm text-stone-700 dark:text-stone-300">
+      <span className="text-sm text-white/65">
         {label}
       </span>
     </div>
@@ -298,13 +299,13 @@ interface ExportItemProps {
 
 function ExportItem({ title, description, items }: ExportItemProps) {
   return (
-    <div className="bg-stone-50 dark:bg-stone-800/50 rounded-lg p-4">
-      <h4 className="font-medium text-stone-900 dark:text-stone-100 mb-1">{title}</h4>
-      <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">{description}</p>
-      <ul className="text-sm text-stone-600 dark:text-stone-400 space-y-1">
+    <div className="bg-white/[0.02] rounded-lg p-4">
+      <h4 className="font-medium text-white mb-1">{title}</h4>
+      <p className="text-xs text-white/40 mb-3">{description}</p>
+      <ul className="text-sm text-white/65 space-y-1">
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">
-            <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500" />
+            <span className="w-1 h-1 rounded-full bg-white/30" />
             {item}
           </li>
         ))}

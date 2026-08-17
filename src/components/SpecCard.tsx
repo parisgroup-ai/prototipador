@@ -20,16 +20,16 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
   }
 
   return (
-    <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+    <Card className="border-white/[0.06] shadow-sm">
       <CardHeader className="pb-4">
-        <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-          {sectionTitle || 'Specification'}
+        <CardTitle className="text-lg font-semibold text-white">
+          {sectionTitle || 'Especificação'}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Overview */}
         {spec.overview && (
-          <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
+          <p className="text-white/65 leading-relaxed">
             {spec.overview}
           </p>
         )}
@@ -38,14 +38,14 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
         {spec.userFlows.length > 0 && (
           <Collapsible open={userFlowsOpen} onOpenChange={setUserFlowsOpen}>
             <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
-              <span className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">
-                User Flows
-                <span className="ml-2 text-stone-400 dark:text-stone-500 normal-case tracking-normal">
+              <span className="text-sm font-medium text-white/40 uppercase tracking-wide">
+                Fluxos do usuário
+                <span className="ml-2 text-white/40 normal-case tracking-normal">
                   ({spec.userFlows.length})
                 </span>
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-stone-400 dark:text-stone-500 transition-transform ${
+                className={`w-4 h-4 text-white/40 transition-transform ${
                   userFlowsOpen ? 'rotate-180' : ''
                 }`}
                 strokeWidth={1.5}
@@ -55,8 +55,8 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
               <ul className="space-y-2 pt-2">
                 {spec.userFlows.map((flow, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-stone-900 dark:bg-stone-100 mt-2 shrink-0" />
-                    <span className="text-stone-700 dark:text-stone-300 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] mt-2 shrink-0" />
+                    <span className="text-white/65 text-sm">
                       {flow}
                     </span>
                   </li>
@@ -70,14 +70,14 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
         {spec.uiRequirements.length > 0 && (
           <Collapsible open={uiReqOpen} onOpenChange={setUiReqOpen}>
             <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
-              <span className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">
-                UI Requirements
-                <span className="ml-2 text-stone-400 dark:text-stone-500 normal-case tracking-normal">
+              <span className="text-sm font-medium text-white/40 uppercase tracking-wide">
+                Requisitos de interface
+                <span className="ml-2 text-white/40 normal-case tracking-normal">
                   ({spec.uiRequirements.length})
                 </span>
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-stone-400 dark:text-stone-500 transition-transform ${
+                className={`w-4 h-4 text-white/40 transition-transform ${
                   uiReqOpen ? 'rotate-180' : ''
                 }`}
                 strokeWidth={1.5}
@@ -87,8 +87,8 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
               <ul className="space-y-2 pt-2">
                 {spec.uiRequirements.map((req, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-stone-900 dark:bg-stone-100 mt-2 shrink-0" />
-                    <span className="text-stone-700 dark:text-stone-300 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] mt-2 shrink-0" />
+                    <span className="text-white/65 text-sm">
                       {req}
                     </span>
                   </li>
@@ -99,19 +99,19 @@ export function SpecCard({ spec, sectionTitle }: SpecCardProps) {
         )}
 
         {/* Display Configuration */}
-        <div className="flex items-center gap-2 pt-2 border-t border-stone-100 dark:border-stone-800">
+        <div className="flex items-center gap-2 pt-2 border-t border-white/[0.04]">
           {spec.useShell ? (
             <>
-              <PanelTop className="w-4 h-4 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
-              <span className="text-sm text-stone-500 dark:text-stone-400">
-                Displays inside app shell
+              <PanelTop className="w-4 h-4 text-white/40" strokeWidth={1.5} />
+              <span className="text-sm text-white/40">
+                Renderiza dentro da estrutura do app
               </span>
             </>
           ) : (
             <>
-              <Square className="w-4 h-4 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
-              <span className="text-sm text-stone-500 dark:text-stone-400">
-                Standalone page (no shell)
+              <Square className="w-4 h-4 text-white/40" strokeWidth={1.5} />
+              <span className="text-sm text-white/40">
+                Página independente (sem a estrutura)
               </span>
             </>
           )}

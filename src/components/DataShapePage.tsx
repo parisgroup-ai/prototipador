@@ -18,11 +18,12 @@ export function DataShapePage() {
       <div className="space-y-6">
         {/* Page intro */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
-            Data Shape
+          <div className="paris-eyebrow mb-1.5">Prototipador · Fase 2 de 5</div>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
+            Estrutura de dados
           </h1>
-          <p className="text-stone-600 dark:text-stone-400">
-            Sketch out the general shape of your product's data — the core entities and how they relate.
+          <p className="text-white/60">
+            Esboce o formato geral dos dados do seu produto — as entidades principais e como elas se relacionam.
           </p>
         </div>
 
@@ -33,29 +34,29 @@ export function DataShapePage() {
           ) : (
             <div className="space-y-6">
               {/* Entities */}
-              <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+              <Card className="border-white/[0.06] shadow-sm">
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-                    Entities
-                    <span className="ml-2 text-sm font-normal text-stone-500 dark:text-stone-400">
+                  <CardTitle className="text-lg font-semibold text-white">
+                    Entidades
+                    <span className="ml-2 text-sm font-normal text-white/40">
                       ({dataShape.entities.length})
                     </span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   {dataShape.entities.length === 0 ? (
-                    <p className="text-stone-500 dark:text-stone-400">No entities defined.</p>
+                    <p className="text-white/40">Nenhuma entidade definida.</p>
                   ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {dataShape.entities.map((entity, index) => (
                         <div
                           key={index}
-                          className="bg-stone-50 dark:bg-stone-800/50 rounded-lg p-4"
+                          className="bg-white/[0.02] rounded-lg p-4"
                         >
-                          <h3 className="font-semibold text-stone-900 dark:text-stone-100 mb-1">
+                          <h3 className="font-semibold text-white mb-1">
                             {entity.name}
                           </h3>
-                          <p className="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+                          <p className="text-white/65 text-sm leading-relaxed">
                             {entity.description}
                           </p>
                         </div>
@@ -66,24 +67,24 @@ export function DataShapePage() {
               </Card>
 
               {/* Relationships */}
-              <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+              <Card className="border-white/[0.06] shadow-sm">
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-                    Relationships
-                    <span className="ml-2 text-sm font-normal text-stone-500 dark:text-stone-400">
+                  <CardTitle className="text-lg font-semibold text-white">
+                    Relações
+                    <span className="ml-2 text-sm font-normal text-white/40">
                       ({dataShape.relationships.length})
                     </span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   {dataShape.relationships.length === 0 ? (
-                    <p className="text-stone-500 dark:text-stone-400">No relationships defined.</p>
+                    <p className="text-white/40">Nenhuma relação definida.</p>
                   ) : (
                     <ul className="space-y-2">
                       {dataShape.relationships.map((relationship, index) => (
                         <li key={index} className="flex items-start gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-stone-400 dark:bg-stone-500 mt-2 shrink-0" />
-                          <span className="text-stone-700 dark:text-stone-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 shrink-0" />
+                          <span className="text-white/65">
                             {relationship}
                           </span>
                         </li>
@@ -94,12 +95,12 @@ export function DataShapePage() {
               </Card>
 
               {/* Edit hint */}
-              <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-3">
-                <p className="text-sm text-stone-600 dark:text-stone-400">
-                  To update the data shape, run{' '}
-                  <code className="font-mono text-stone-800 dark:text-stone-200">/dados</code>{' '}
-                  or edit the file directly at{' '}
-                  <code className="font-mono text-stone-800 dark:text-stone-200">
+              <div className="bg-white/[0.04] rounded-md px-4 py-3">
+                <p className="text-sm text-white/65">
+                  Pra atualizar a estrutura de dados, rode{' '}
+                  <code className="font-mono text-[#a0b4ff]">/dados</code>{' '}
+                  ou edite direto o arquivo{' '}
+                  <code className="font-mono text-white/85">
                     product/data-shape/data-shape.md
                   </code>
                 </p>

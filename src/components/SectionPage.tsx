@@ -9,7 +9,7 @@ import { DataCard } from '@/components/DataCard'
 import { StepIndicator, type StepStatus } from '@/components/StepIndicator'
 import { loadProductData } from '@/lib/product-loader'
 import { loadSectionData } from '@/lib/section-loader'
-import { ChevronRight, Layout, Image, Download, ArrowRight, LayoutList } from 'lucide-react'
+import { ChevronRight, Layout, Download, ArrowRight, LayoutList } from 'lucide-react'
 
 /**
  * Determine the status of each step based on what data exists
@@ -61,10 +61,10 @@ export function SectionPage() {
   // Handle missing section
   if (!section) {
     return (
-      <AppLayout backTo="/sections" backLabel="Sections">
+      <AppLayout backTo="/sections" backLabel="Seções">
         <div className="text-center py-12">
-          <p className="text-stone-600 dark:text-stone-400">
-            Section not found: {sectionId}
+          <p className="text-white/65">
+            Seção não encontrada: {sectionId}
           </p>
         </div>
       </AppLayout>
@@ -79,14 +79,15 @@ export function SectionPage() {
   const nextSection = !isLastSection ? sections[currentIndex + 1] : null
 
   return (
-    <AppLayout backTo="/sections" backLabel="Sections" title={section.title}>
+    <AppLayout backTo="/sections" backLabel="Seções" title={section.title}>
       <div className="space-y-6">
         {/* Page intro */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
+          <div className="paris-eyebrow mb-1.5">Prototipador · Seção {section.order}</div>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
             {section.title}
           </h1>
-          <p className="text-stone-600 dark:text-stone-400">
+          <p className="text-white/60">
             {section.description}
           </p>
         </div>
@@ -96,7 +97,7 @@ export function SectionPage() {
 
         {/* Step 1: Section Overview (Spec) */}
         <StepIndicator step={1} status={stepStatuses[0]}>
-          <SpecCard spec={sectionData?.specParsed || null} sectionTitle="Section Overview" />
+          <SpecCard spec={sectionData?.specParsed || null} sectionTitle="Especificação da seção" />
         </StepIndicator>
 
         {/* Step 2: Sample Data */}
@@ -109,32 +110,32 @@ export function SectionPage() {
           {!sectionData?.screenDesigns || sectionData.screenDesigns.length === 0 ? (
             <EmptyState type="screen-designs" />
           ) : (
-            <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+            <Card className="border-white/[0.06] shadow-sm">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-                  Screen Designs
-                  <span className="ml-2 text-sm font-normal text-stone-500 dark:text-stone-400">
+                <CardTitle className="text-lg font-semibold text-white">
+                  Telas
+                  <span className="ml-2 text-sm font-normal text-white/40">
                     ({sectionData.screenDesigns.length})
                   </span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
-                <ul className="divide-y divide-stone-200 dark:divide-stone-700">
+                <ul className="divide-y divide-white/[0.06]">
                   {sectionData.screenDesigns.map((screenDesign) => (
                     <li key={screenDesign.name}>
                       <Link
                         to={`/sections/${sectionId}/screen-designs/${screenDesign.name}`}
-                        className="flex items-center justify-between gap-4 px-6 py-4 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors"
+                        className="flex items-center justify-between gap-4 px-6 py-4 hover:bg-white/[0.03] transition-colors"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center justify-center shrink-0">
-                            <Layout className="w-4 h-4 text-stone-600 dark:text-stone-300" strokeWidth={1.5} />
+                          <div className="w-8 h-8 rounded-md bg-white/[0.08] flex items-center justify-center shrink-0">
+                            <Layout className="w-4 h-4 text-white/65" strokeWidth={1.5} />
                           </div>
-                          <span className="font-medium text-stone-900 dark:text-stone-100 truncate">
+                          <span className="font-medium text-white truncate">
                             {screenDesign.name}
                           </span>
                         </div>
-                        <ChevronRight className="w-4 h-4 text-stone-400 dark:text-stone-500 shrink-0" strokeWidth={1.5} />
+                        <ChevronRight className="w-4 h-4 text-white/40 shrink-0" strokeWidth={1.5} />
                       </Link>
                     </li>
                   ))}
@@ -147,35 +148,13 @@ export function SectionPage() {
         {/* Step 4: Screenshots */}
         <StepIndicator step={4} status={stepStatuses[3]} isLast={!requiredStepsComplete}>
           {!sectionData?.screenshots || sectionData.screenshots.length === 0 ? (
-            <Card className="border-stone-200 dark:border-stone-700 shadow-sm border-dashed">
-              <CardContent className="py-8">
-                <div className="flex flex-col items-center text-center max-w-sm mx-auto">
-                  <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center mb-3">
-                    <Image className="w-5 h-5 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-base font-medium text-stone-600 dark:text-stone-400 mb-1">
-                    No screenshots captured yet
-                  </h3>
-                  <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
-                    Capture screenshots of your screen designs for documentation
-                  </p>
-                  <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5 w-full">
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mb-0.5">
-                      Run in Claude Code:
-                    </p>
-                    <code className="text-sm font-mono text-stone-700 dark:text-stone-300">
-                      /foto
-                    </code>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <EmptyState type="screenshots" />
           ) : (
-            <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+            <Card className="border-white/[0.06] shadow-sm">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
+                <CardTitle className="text-lg font-semibold text-white">
                   Screenshots
-                  <span className="ml-2 text-sm font-normal text-stone-500 dark:text-stone-400">
+                  <span className="ml-2 text-sm font-normal text-white/40">
                     ({sectionData.screenshots.length})
                   </span>
                 </CardTitle>
@@ -184,7 +163,7 @@ export function SectionPage() {
                 <div className="grid grid-cols-2 gap-4">
                   {sectionData.screenshots.map((screenshot) => (
                     <div key={screenshot.name} className="group">
-                      <div className="aspect-video rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+                      <div className="aspect-video rounded-lg overflow-hidden bg-white/[0.04] border border-white/[0.06]">
                         <img
                           src={screenshot.url}
                           alt={screenshot.name}
@@ -192,14 +171,14 @@ export function SectionPage() {
                         />
                       </div>
                       <div className="mt-2 flex items-center justify-between gap-2">
-                        <p className="text-sm text-stone-600 dark:text-stone-400 truncate">
+                        <p className="text-sm text-white/65 truncate">
                           {screenshot.name}
                         </p>
                         <a
                           href={screenshot.url}
                           download={`${screenshot.name}.png`}
-                          className="shrink-0 p-1.5 rounded-md text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-                          title="Download screenshot"
+                          className="shrink-0 p-1.5 rounded-md text-white/35 hover:text-white/80 hover:bg-white/[0.05] transition-colors"
+                          title="Baixar screenshot"
                         >
                           <Download className="w-4 h-4" strokeWidth={1.5} />
                         </a>
@@ -221,21 +200,21 @@ export function SectionPage() {
                 <>
                   <button
                     onClick={() => navigate(`/sections/${nextSection.id}`)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-4 bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 rounded-lg hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors group"
+                    className="w-full flex items-center justify-between gap-4 px-6 py-4 paris-cta rounded-xl transition-all group"
                   >
                     <div className="flex items-center gap-3">
                       <ArrowRight className="w-5 h-5" strokeWidth={1.5} />
-                      <span className="font-medium">Continue to {nextSection.title}</span>
+                      <span className="relative z-10 font-medium">Avançar pra {nextSection.title}</span>
                     </div>
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                   </button>
                   <button
                     onClick={() => navigate('/sections')}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-4 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors group"
+                    className="w-full flex items-center justify-between gap-4 px-6 py-4 bg-white/[0.04] text-white/65 rounded-lg hover:bg-white/[0.06] transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       <LayoutList className="w-5 h-5" strokeWidth={1.5} />
-                      <span className="font-medium">View All Sections</span>
+                      <span className="font-medium">Ver todas as seções</span>
                     </div>
                     <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                   </button>
@@ -244,11 +223,11 @@ export function SectionPage() {
                 /* If this is the last or only section, show single link back to sections */
                 <button
                   onClick={() => navigate('/sections')}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-4 bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 rounded-lg hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors group"
+                  className="w-full flex items-center justify-between gap-4 px-6 py-4 paris-cta rounded-xl transition-all group"
                 >
                   <div className="flex items-center gap-3">
                     <LayoutList className="w-5 h-5" strokeWidth={1.5} />
-                    <span className="font-medium">Back to All Sections</span>
+                    <span className="relative z-10 font-medium">Voltar pra todas as seções</span>
                   </div>
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
                 </button>

@@ -1,19 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 /*
-  Prototipador - Refined Utility Design System
-  A professional, editorial-inspired aesthetic with warm neutrals
-  Using Tailwind's stone palette for warmth
+  Prototipador — Paris Group
+  Mesmo padrão visual do onboarding da Imersão Paris:
+  fundo #05060A, dupla de acentos #4F6AFF → #8B5CF6, cartões em
+  white/[0.02] com bordas white/[0.06], eyebrows uppercase em gradiente.
+  Tema escuro único (o onboarding é dark-only).
 */
 @theme {
-  /* Font families - DM Sans for clean, geometric type */
-  --font-display: "DM Sans", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  /* Geist — a mesma família do app da imersão */
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
 /* Shadcn theme integration */
@@ -56,97 +56,50 @@
 }
 
 /*
-  Light theme - Warm Stone palette
-  Professional, editorial aesthetic with warmth
+  Paleta Paris — tema único (escuro), espelhando o onboarding.
 */
 :root {
-  --radius: 0.5rem;
-  /* Backgrounds & Foregrounds - Stone palette for warmth */
-  --background: oklch(0.985 0.001 106.424); /* stone-50 #FAFAF9 */
-  --foreground: oklch(0.216 0.006 56.043); /* stone-900 #1C1917 */
-  --card: oklch(1 0 0); /* white */
-  --card-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  --popover: oklch(1 0 0); /* white */
-  --popover-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  /* Primary - Stone dark */
-  --primary: oklch(0.216 0.006 56.043); /* stone-900 */
-  --primary-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  /* Secondary - Stone light */
-  --secondary: oklch(0.970 0.001 106.424); /* stone-100 */
-  --secondary-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  /* Muted - Stone for subdued text */
-  --muted: oklch(0.970 0.001 106.424); /* stone-100 */
-  --muted-foreground: oklch(0.444 0.011 73.639); /* stone-600 #57534E */
-  /* Accent - Paris violet for subtle pops */
-  --accent: oklch(0.970 0.001 106.424); /* stone-100 */
-  --accent-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  /* Destructive - Rose */
-  --destructive: oklch(0.586 0.253 17.585); /* rose-600 */
-  /* Borders & Inputs - Stone very light */
-  --border: oklch(0.923 0.003 48.717); /* stone-200 #E7E5E4 */
-  --input: oklch(0.923 0.003 48.717); /* stone-200 */
-  --ring: oklch(0.553 0.013 58.071); /* stone-500 */
+  --radius: 0.75rem;
+  /* Fundo & texto */
+  --background: #05060a;
+  --foreground: #ffffff;
+  --card: rgba(255, 255, 255, 0.02);
+  --card-foreground: #ffffff;
+  --popover: #0e1017;
+  --popover-foreground: #ffffff;
+  /* Primário — azul Paris */
+  --primary: #4f6aff;
+  --primary-foreground: #ffffff;
+  /* Secundário — vidro claro sobre o fundo */
+  --secondary: rgba(255, 255, 255, 0.04);
+  --secondary-foreground: rgba(255, 255, 255, 0.85);
+  /* Muted */
+  --muted: rgba(255, 255, 255, 0.04);
+  --muted-foreground: rgba(255, 255, 255, 0.6);
+  /* Acento — violeta Paris */
+  --accent: rgba(139, 92, 246, 0.12);
+  --accent-foreground: #ffffff;
+  /* Destrutivo */
+  --destructive: oklch(0.645 0.246 16.439); /* rose-500 */
+  /* Bordas & inputs */
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(79, 106, 255, 0.5);
   /* Chart colors */
-  --chart-1: oklch(0.541 0.281 293.009); /* violet-600 #7C3AED */
-  --chart-2: oklch(0.6 0.118 184.704); /* teal-600 */
-  --chart-3: oklch(0.398 0.07 227.392); /* cyan-800 */
-  --chart-4: oklch(0.828 0.189 84.429); /* yellow-400 */
-  --chart-5: oklch(0.769 0.188 70.08); /* amber-400 */
-  /* Sidebar - Stone */
-  --sidebar: oklch(0.985 0.001 106.424); /* stone-50 */
-  --sidebar-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  --sidebar-primary: oklch(0.216 0.006 56.043); /* stone-900 */
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  --sidebar-accent: oklch(0.970 0.001 106.424); /* stone-100 */
-  --sidebar-accent-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  --sidebar-border: oklch(0.923 0.003 48.717); /* stone-200 */
-  --sidebar-ring: oklch(0.553 0.013 58.071); /* stone-500 */
-}
-
-/*
-  Dark theme - Warm Stone dark palette
-*/
-.dark {
-  /* Backgrounds & Foregrounds - Stone dark */
-  --background: oklch(0.216 0.006 56.043); /* stone-900 #1C1917 */
-  --foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  --card: oklch(0.268 0.007 34.298); /* stone-800 #292524 */
-  --card-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  --popover: oklch(0.268 0.007 34.298); /* stone-800 */
-  --popover-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  /* Primary - Stone light */
-  --primary: oklch(0.923 0.003 48.717); /* stone-200 */
-  --primary-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  /* Secondary - Stone dark */
-  --secondary: oklch(0.318 0.008 43.185); /* stone-700 */
-  --secondary-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  /* Muted - Stone dark */
-  --muted: oklch(0.318 0.008 43.185); /* stone-700 */
-  --muted-foreground: oklch(0.709 0.01 56.259); /* stone-400 #A8A29E */
-  /* Accent - Stone dark */
-  --accent: oklch(0.318 0.008 43.185); /* stone-700 */
-  --accent-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  /* Destructive - Rose lighter for dark mode */
-  --destructive: oklch(0.712 0.194 13.428); /* rose-400 */
-  /* Borders & Inputs - Stone dark */
-  --border: oklch(0.370 0.010 67.558); /* stone-600 */
-  --input: oklch(0.370 0.010 67.558); /* stone-600 */
-  --ring: oklch(0.553 0.013 58.071); /* stone-500 */
-  /* Chart colors - brighter for dark mode */
-  --chart-1: oklch(0.606 0.25 292.717); /* violet-500 #8B5CF6 */
-  --chart-2: oklch(0.696 0.17 162.48); /* emerald-400 */
-  --chart-3: oklch(0.769 0.188 70.08); /* amber-400 */
-  --chart-4: oklch(0.627 0.265 303.9); /* purple-500 */
+  --chart-1: #8b5cf6; /* violeta Paris */
+  --chart-2: #4f6aff; /* azul Paris */
+  --chart-3: oklch(0.696 0.17 162.48); /* emerald-400 */
+  --chart-4: oklch(0.769 0.188 70.08); /* amber-400 */
   --chart-5: oklch(0.645 0.246 16.439); /* rose-500 */
-  /* Sidebar - Stone dark */
-  --sidebar: oklch(0.268 0.007 34.298); /* stone-800 */
-  --sidebar-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  --sidebar-primary: oklch(0.606 0.25 292.717); /* violet-500 #8B5CF6 */
-  --sidebar-primary-foreground: oklch(0.216 0.006 56.043); /* stone-900 */
-  --sidebar-accent: oklch(0.318 0.008 43.185); /* stone-700 */
-  --sidebar-accent-foreground: oklch(0.985 0.001 106.424); /* stone-50 */
-  --sidebar-border: oklch(0.370 0.010 67.558); /* stone-600 */
-  --sidebar-ring: oklch(0.553 0.013 58.071); /* stone-500 */
+  /* Sidebar */
+  --sidebar: #0b0d14;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #4f6aff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.04);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: rgba(79, 106, 255, 0.5);
 }
 
 /* Base layer styles */
@@ -163,6 +116,84 @@
   }
   code, pre, kbd {
     font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  /* Eyebrow — rótulo uppercase em gradiente, como no WizardHeader do onboarding */
+  .paris-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    background: linear-gradient(135deg, #4f6aff, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Texto com o gradiente da marca (números de destaque, contadores) */
+  .paris-gradient-text {
+    background: linear-gradient(135deg, #4f6aff, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* CTA — botão com o gradiente da marca + brilho no hover */
+  .paris-cta {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #4f6aff, #7c5cf0, #8b5cf6);
+    color: #ffffff;
+    box-shadow: 0 10px 30px -10px rgba(79, 106, 255, 0.35);
+    transition: box-shadow 300ms ease, transform 300ms ease;
+  }
+  .paris-cta:hover {
+    box-shadow: 0 16px 40px -12px rgba(79, 106, 255, 0.5);
+  }
+  .paris-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: transform 700ms ease;
+  }
+  .paris-cta:hover::after {
+    transform: translateX(100%);
+  }
+
+  /* Mesh ambiente — os blobs desfocados do topo do wizard */
+  .paris-mesh {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .paris-mesh::before {
+    content: "";
+    position: absolute;
+    left: -5rem;
+    top: -5rem;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 9999px;
+    background: rgba(79, 106, 255, 0.04);
+    filter: blur(64px);
+  }
+  .paris-mesh::after {
+    content: "";
+    position: absolute;
+    right: -2.5rem;
+    top: -2.5rem;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 9999px;
+    background: rgba(139, 92, 246, 0.04);
+    filter: blur(64px);
   }
 }
 

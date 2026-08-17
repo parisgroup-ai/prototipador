@@ -79,11 +79,12 @@ export function DesignPage() {
       <div className="space-y-6">
         {/* Page intro */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
-            Design System
+          <div className="paris-eyebrow mb-1.5">Prototipador · Fase 3 de 5</div>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
+            Design
           </h1>
-          <p className="text-stone-600 dark:text-stone-400">
-            Define the visual foundation and application shell for your product.
+          <p className="text-white/60">
+            Defina a base visual e a estrutura do app do seu produto.
           </p>
         </div>
 
@@ -92,30 +93,30 @@ export function DesignPage() {
           {!designSystem?.colors && !designSystem?.typography ? (
             <EmptyState type="design-system" />
           ) : (
-            <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+            <Card className="border-white/[0.06] shadow-sm">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-                  Design Tokens
+                <CardTitle className="text-lg font-semibold text-white">
+                  Estilo
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Colors */}
                 {designSystem?.colors && (
                   <div>
-                    <h4 className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-4">
-                      Colors
+                    <h4 className="text-sm font-medium text-white/40 uppercase tracking-wide mb-4">
+                      Cores
                     </h4>
                     <div className="grid grid-cols-3 gap-6">
                       <ColorSwatch
-                        label="Primary"
+                        label="Primária"
                         colorName={designSystem.colors.primary}
                       />
                       <ColorSwatch
-                        label="Secondary"
+                        label="Secundária"
                         colorName={designSystem.colors.secondary}
                       />
                       <ColorSwatch
-                        label="Neutral"
+                        label="Neutra"
                         colorName={designSystem.colors.neutral}
                       />
                     </div>
@@ -125,25 +126,25 @@ export function DesignPage() {
                 {/* Typography */}
                 {designSystem?.typography && (
                   <div>
-                    <h4 className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-4">
-                      Typography
+                    <h4 className="text-sm font-medium text-white/40 uppercase tracking-wide mb-4">
+                      Tipografia
                     </h4>
                     <div className="grid grid-cols-3 gap-6">
                       <div>
-                        <p className="text-xs text-stone-500 dark:text-stone-400 mb-1">Heading</p>
-                        <p className="font-semibold text-stone-900 dark:text-stone-100">
+                        <p className="text-xs text-white/40 mb-1">Títulos</p>
+                        <p className="font-semibold text-white">
                           {designSystem.typography.heading}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-stone-500 dark:text-stone-400 mb-1">Body</p>
-                        <p className="text-stone-900 dark:text-stone-100">
+                        <p className="text-xs text-white/40 mb-1">Texto</p>
+                        <p className="text-white">
                           {designSystem.typography.body}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-stone-500 dark:text-stone-400 mb-1">Mono</p>
-                        <p className="font-mono text-stone-900 dark:text-stone-100">
+                        <p className="text-xs text-white/40 mb-1">Mono</p>
+                        <p className="font-mono text-white">
                           {designSystem.typography.mono}
                         </p>
                       </div>
@@ -152,9 +153,9 @@ export function DesignPage() {
                 )}
 
                 {/* Edit hint */}
-                <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5">
-                  <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/estilo</code> to update
+                <div className="bg-white/[0.04] rounded-md px-4 py-2.5">
+                  <p className="text-xs text-white/40">
+                    Rode <code className="font-mono text-[#a0b4ff]">/estilo</code> pra atualizar
                   </p>
                 </div>
               </CardContent>
@@ -167,16 +168,16 @@ export function DesignPage() {
           {!shell?.spec ? (
             <EmptyState type="shell" />
           ) : (
-            <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+            <Card className="border-white/[0.06] shadow-sm">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-                  Application Shell
+                <CardTitle className="text-lg font-semibold text-white">
+                  Estrutura do app
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Overview */}
                 {shell.spec.overview && (
-                  <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
+                  <p className="text-white/65 leading-relaxed">
                     {shell.spec.overview}
                   </p>
                 )}
@@ -184,16 +185,16 @@ export function DesignPage() {
                 {/* Navigation items */}
                 {shell.spec.navigationItems.length > 0 && (
                   <div>
-                    <h4 className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide mb-2">
-                      Navigation
+                    <h4 className="text-sm font-medium text-white/40 uppercase tracking-wide mb-2">
+                      Navegação
                     </h4>
                     <ul className="space-y-1">
                       {shell.spec.navigationItems.map((item, index) => {
                         // Parse markdown-style bold: **text** → <strong>text</strong>
                         const parts = item.split(/\*\*([^*]+)\*\*/)
                         return (
-                          <li key={index} className="flex items-center gap-2 text-stone-700 dark:text-stone-300">
-                            <span className="w-1 h-1 rounded-full bg-stone-400 dark:bg-stone-500" />
+                          <li key={index} className="flex items-center gap-2 text-white/65">
+                            <span className="w-1 h-1 rounded-full bg-white/30" />
                             {parts.map((part, i) =>
                               i % 2 === 1 ? (
                                 <strong key={i} className="font-semibold">{part}</strong>
@@ -210,28 +211,28 @@ export function DesignPage() {
 
                 {/* View Shell Design Link */}
                 {shell.hasComponents && (
-                  <div className="pt-2 border-t border-stone-100 dark:border-stone-800">
+                  <div className="pt-2 border-t border-white/[0.04]">
                     <Link
                       to="/shell/design"
-                      className="flex items-center justify-between gap-4 py-2 hover:text-stone-900 dark:hover:text-stone-100 transition-colors group"
+                      className="flex items-center justify-between gap-4 py-2 hover:text-white transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center justify-center">
-                          <Layout className="w-4 h-4 text-stone-600 dark:text-stone-300" strokeWidth={1.5} />
+                        <div className="w-8 h-8 rounded-md bg-white/[0.08] flex items-center justify-center">
+                          <Layout className="w-4 h-4 text-white/65" strokeWidth={1.5} />
                         </div>
-                        <span className="font-medium text-stone-700 dark:text-stone-300 group-hover:text-stone-900 dark:group-hover:text-stone-100">
-                          View Shell Design
+                        <span className="font-medium text-white/65 group-hover:text-white">
+                          Ver a estrutura desenhada
                         </span>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
+                      <ChevronRight className="w-4 h-4 text-white/40" strokeWidth={1.5} />
                     </Link>
                   </div>
                 )}
 
                 {/* Edit hint */}
-                <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5">
-                  <p className="text-xs text-stone-500 dark:text-stone-400">
-                    Run <code className="font-mono text-stone-700 dark:text-stone-300">/estrutura</code> to update
+                <div className="bg-white/[0.04] rounded-md px-4 py-2.5">
+                  <p className="text-xs text-white/40">
+                    Rode <code className="font-mono text-[#a0b4ff]">/estrutura</code> pra atualizar
                   </p>
                 </div>
               </CardContent>
@@ -277,8 +278,8 @@ function ColorSwatch({ label, colorName }: ColorSwatchProps) {
           title={`${colorName}-600`}
         />
       </div>
-      <p className="text-sm font-medium text-stone-900 dark:text-stone-100">{label}</p>
-      <p className="text-xs text-stone-500 dark:text-stone-400">{colorName}</p>
+      <p className="text-sm font-medium text-white">{label}</p>
+      <p className="text-xs text-white/40">{colorName}</p>
     </div>
   )
 }

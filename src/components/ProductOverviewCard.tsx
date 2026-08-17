@@ -13,16 +13,16 @@ export function ProductOverviewCard({ overview }: ProductOverviewCardProps) {
   const [featuresOpen, setFeaturesOpen] = useState(false)
 
   return (
-    <Card className="border-stone-200 dark:border-stone-700 shadow-sm">
+    <Card className="border-white/[0.06] shadow-sm">
       <CardHeader className="pb-4">
-        <CardTitle className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-          Product overview: {overview.name}
+        <CardTitle className="text-lg font-semibold text-white">
+          Visão do produto: {overview.name}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Description */}
         {overview.description && (
-          <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
+          <p className="text-white/65 leading-relaxed">
             {overview.description}
           </p>
         )}
@@ -31,14 +31,14 @@ export function ProductOverviewCard({ overview }: ProductOverviewCardProps) {
         {overview.problems.length > 0 && (
           <Collapsible open={problemsOpen} onOpenChange={setProblemsOpen}>
             <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
-              <span className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">
-                Problems & Solutions
-                <span className="ml-2 text-stone-400 dark:text-stone-500 normal-case tracking-normal">
+              <span className="text-sm font-medium text-white/40 uppercase tracking-wide">
+                Problemas e soluções
+                <span className="ml-2 text-white/40 normal-case tracking-normal">
                   ({overview.problems.length})
                 </span>
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-stone-400 dark:text-stone-500 transition-transform ${
+                className={`w-4 h-4 text-white/40 transition-transform ${
                   problemsOpen ? 'rotate-180' : ''
                 }`}
                 strokeWidth={1.5}
@@ -48,13 +48,13 @@ export function ProductOverviewCard({ overview }: ProductOverviewCardProps) {
               <ul className="space-y-3 pt-2">
                 {overview.problems.map((problem, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <ArrowRight className="w-4 h-4 text-stone-900 dark:text-stone-100 mt-1 shrink-0" strokeWidth={2} />
+                    <ArrowRight className="w-4 h-4 text-white mt-1 shrink-0" strokeWidth={2} />
                     <div>
-                      <span className="font-medium text-stone-800 dark:text-stone-200">
+                      <span className="font-medium text-white/85">
                         {problem.title}
                       </span>
-                      <span className="text-stone-500 dark:text-stone-400 mx-2">—</span>
-                      <span className="text-stone-600 dark:text-stone-400">
+                      <span className="text-white/40 mx-2">—</span>
+                      <span className="text-white/65">
                         {problem.solution}
                       </span>
                     </div>
@@ -69,14 +69,14 @@ export function ProductOverviewCard({ overview }: ProductOverviewCardProps) {
         {overview.features.length > 0 && (
           <Collapsible open={featuresOpen} onOpenChange={setFeaturesOpen}>
             <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
-              <span className="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">
-                Key Features
-                <span className="ml-2 text-stone-400 dark:text-stone-500 normal-case tracking-normal">
+              <span className="text-sm font-medium text-white/40 uppercase tracking-wide">
+                Funcionalidades-chave
+                <span className="ml-2 text-white/40 normal-case tracking-normal">
                   ({overview.features.length})
                 </span>
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-stone-400 dark:text-stone-500 transition-transform ${
+                className={`w-4 h-4 text-white/40 transition-transform ${
                   featuresOpen ? 'rotate-180' : ''
                 }`}
                 strokeWidth={1.5}
@@ -86,8 +86,8 @@ export function ProductOverviewCard({ overview }: ProductOverviewCardProps) {
               <ul className="space-y-2 pt-2 ml-1">
                 {overview.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-stone-900 dark:bg-stone-100 mt-2 shrink-0" />
-                    <span className="text-stone-700 dark:text-stone-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] mt-2 shrink-0" />
+                    <span className="text-white/65">
                       {feature}
                     </span>
                   </li>

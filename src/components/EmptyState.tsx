@@ -1,7 +1,8 @@
-import { FileText, Map, ClipboardList, Database, Layout, Package, Boxes, Palette, PanelLeft } from 'lucide-react'
+import { useState } from 'react'
+import { FileText, Map, ClipboardList, Database, Layout, Package, Boxes, Palette, PanelLeft, Image, Copy, Check } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 
-type EmptyStateType = 'overview' | 'roadmap' | 'spec' | 'data' | 'screen-designs' | 'data-shape' | 'design-system' | 'shell' | 'export'
+type EmptyStateType = 'overview' | 'roadmap' | 'spec' | 'data' | 'screen-designs' | 'screenshots' | 'data-shape' | 'design-system' | 'shell' | 'export'
 
 interface EmptyStateProps {
   type: EmptyStateType
@@ -15,83 +16,110 @@ const config: Record<EmptyStateType, {
 }> = {
   overview: {
     icon: FileText,
-    title: 'No product defined yet',
+    title: 'Seu produto ainda não foi definido',
     command: '/visao',
-    description: 'Define your product vision, key problems, and features',
+    description: 'Conte pro Claude o que é o seu produto: a dor, a ideia e pra quem ele resolve',
   },
   roadmap: {
     icon: Map,
-    title: 'No roadmap defined yet',
+    title: 'Seu roadmap ainda não existe',
     command: '/roadmap',
-    description: 'Break down your product into development sections',
+    description: 'Quebre o produto em seções de desenvolvimento — uma por vez',
   },
   spec: {
     icon: ClipboardList,
-    title: 'No specification defined yet',
+    title: 'Esta seção ainda não tem especificação',
     command: '/secao',
-    description: 'Define the user flows and UI requirements',
+    description: 'Defina os fluxos do usuário e o que a interface precisa mostrar',
   },
   data: {
     icon: Database,
-    title: 'No sample data generated yet',
+    title: 'Ainda não há dados de exemplo',
     command: '/dados-exemplo',
-    description: 'Create realistic sample data for screen designs',
+    description: 'Gere dados realistas do SEU negócio pra dar vida às telas',
   },
   'screen-designs': {
     icon: Layout,
-    title: 'No screen designs created yet',
+    title: 'Nenhuma tela desenhada ainda',
     command: '/tela',
-    description: 'Create screen designs for this section',
+    description: 'Crie as telas desta seção — é aqui que o produto aparece',
+  },
+  screenshots: {
+    icon: Image,
+    title: 'Nenhum screenshot capturado ainda',
+    command: '/foto',
+    description: 'Capture screenshots das suas telas pra documentação e pra apresentação',
   },
   'data-shape': {
     icon: Boxes,
-    title: 'No data shape defined yet',
+    title: 'A estrutura de dados ainda não foi esboçada',
     command: '/dados',
-    description: 'Sketch out the general shape of your product\'s data',
+    description: 'Esboce o formato geral dos dados do seu produto',
   },
   'design-system': {
     icon: Palette,
-    title: 'No design tokens defined yet',
+    title: 'O estilo ainda não foi escolhido',
     command: '/estilo',
-    description: 'Choose colors and typography for your product',
+    description: 'Escolha as cores e a tipografia do seu produto',
   },
   shell: {
     icon: PanelLeft,
-    title: 'No application shell designed yet',
+    title: 'A estrutura do app ainda não foi desenhada',
     command: '/estrutura',
-    description: 'Design the navigation and layout',
+    description: 'Desenhe a navegação e o layout que envolvem as telas',
   },
   export: {
     icon: Package,
-    title: 'Ready to export',
+    title: 'Pronto pra exportar',
     command: '/exportar',
-    description: 'Generate the complete handoff package',
+    description: 'Gere o pacote completo pra virar implementação de verdade',
   },
 }
 
 export function EmptyState({ type }: EmptyStateProps) {
   const { icon: Icon, title, command, description } = config[type]
+  const [copied, setCopied] = useState(false)
+
+  const copyCommand = async () => {
+    try {
+      await navigator.clipboard.writeText(command)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    } catch { /* clipboard indisponível — sem drama */ }
+  }
 
   return (
-    <Card className="border-stone-200 dark:border-stone-700 shadow-sm border-dashed">
+    <Card className="border-white/[0.08] border-dashed bg-white/[0.02] backdrop-blur-sm shadow-none">
       <CardContent className="py-8">
         <div className="flex flex-col items-center text-center max-w-sm mx-auto">
-          <div className="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center mb-3">
-            <Icon className="w-5 h-5 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4F6AFF]/15 to-[#8B5CF6]/15 border border-white/[0.06] flex items-center justify-center mb-3">
+            <Icon className="w-5 h-5 text-[#a0b4ff]" strokeWidth={1.5} />
           </div>
-          <h3 className="text-base font-medium text-stone-600 dark:text-stone-400 mb-1">
+          <h3 className="text-base font-medium text-white mb-1">
             {title}
           </h3>
-          <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
+          <p className="text-sm text-white/50 mb-4">
             {description}
           </p>
-          <div className="bg-stone-100 dark:bg-stone-800 rounded-md px-4 py-2.5 w-full">
-            <p className="text-xs text-stone-500 dark:text-stone-400 mb-0.5">
-              Run in Claude Code:
+          <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-4 py-2.5 w-full">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-1">
+              Abra o Claude Code nesta pasta e rode
             </p>
-            <code className="text-sm font-mono text-stone-700 dark:text-stone-300">
-              {command}
-            </code>
+            <button
+              type="button"
+              onClick={copyCommand}
+              title="Copiar comando"
+              className="group inline-flex items-center gap-2 rounded-md px-2 py-1 -mx-2 transition-colors hover:bg-white/[0.05] cursor-pointer"
+            >
+              <code className="text-sm font-mono text-[#a0b4ff]">
+                {command}
+              </code>
+              {copied ? (
+                <Check className="w-3.5 h-3.5 text-emerald-400" strokeWidth={2} />
+              ) : (
+                <Copy className="w-3.5 h-3.5 text-white/30 transition-colors group-hover:text-white/70" strokeWidth={1.5} />
+              )}
+            </button>
           </div>
         </div>
       </CardContent>

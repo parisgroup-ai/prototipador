@@ -46,22 +46,22 @@ export function PhaseWarningBanner() {
   // Build the warning message
   const missingPhases: { name: string; path: string }[] = []
   if (!hasDataShape) {
-    missingPhases.push({ name: 'Data Shape', path: '/data-shape' })
+    missingPhases.push({ name: 'Dados', path: '/data-shape' })
   }
   if (!hasDesign) {
     missingPhases.push({ name: 'Design', path: '/design' })
   }
 
   return (
-    <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg px-4 py-3 mb-6">
+    <div className="bg-amber-400/[0.08] border border-amber-400/25 rounded-xl px-4 py-3 mb-6 backdrop-blur-sm">
       <div className="flex items-start gap-3">
-        <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" strokeWidth={2} />
+        <AlertTriangle className="w-4 h-4 text-amber-300 mt-0.5 shrink-0" strokeWidth={2} />
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            Consider completing{' '}
+          <p className="text-sm text-amber-100/90">
+            Vale completar{' '}
             {missingPhases.map((phase, index) => (
               <span key={phase.path}>
-                {index > 0 && ' and '}
+                {index > 0 && ' e '}
                 <Link
                   to={phase.path}
                   className="font-medium underline hover:no-underline"
@@ -70,12 +70,12 @@ export function PhaseWarningBanner() {
                 </Link>
               </span>
             ))}{' '}
-            before designing sections.
+            antes de desenhar as telas das seções.
           </p>
         </div>
         <button
           onClick={handleDismiss}
-          className="text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-200 transition-colors shrink-0"
+          className="text-amber-300/70 hover:text-amber-100 transition-colors shrink-0"
         >
           <X className="w-4 h-4" strokeWidth={2} />
         </button>

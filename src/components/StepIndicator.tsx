@@ -16,7 +16,7 @@ export function StepIndicator({ step, status, children, isLast = false }: StepIn
       {/* Vertical connecting line - extends from this step to the next */}
       {!isLast && (
         <div
-          className="absolute left-[10px] top-[28px] w-[2px] h-[calc(100%+16px)] bg-stone-200 dark:bg-stone-700"
+          className="absolute left-[10px] top-[28px] w-[2px] h-[calc(100%+16px)] bg-white/[0.08]"
           aria-hidden="true"
         />
       )}
@@ -44,7 +44,7 @@ function StepBadge({ step, status }: StepBadgeProps) {
 
   if (status === 'completed') {
     return (
-      <div className={`${baseClasses} bg-stone-200 dark:bg-stone-700 text-stone-500 dark:text-stone-400`}>
+      <div className={`${baseClasses} bg-gradient-to-br from-[#4F6AFF] to-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/30`}>
         <Check className="w-3 h-3" strokeWidth={2.5} />
       </div>
     )
@@ -52,7 +52,7 @@ function StepBadge({ step, status }: StepBadgeProps) {
 
   if (status === 'current') {
     return (
-      <div className={`${baseClasses} bg-stone-900 dark:bg-stone-100 text-stone-100 dark:text-stone-900 shadow-sm`}>
+      <div className={`${baseClasses} bg-white text-[#05060A] shadow-[0_0_12px_rgba(255,255,255,0.35)]`}>
         <ArrowRight className="w-3 h-3" strokeWidth={2.5} />
       </div>
     )
@@ -60,7 +60,7 @@ function StepBadge({ step, status }: StepBadgeProps) {
 
   if (status === 'skipped') {
     return (
-      <div className={`${baseClasses} bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400`}>
+      <div className={`${baseClasses} bg-amber-400/15 text-amber-300 border border-amber-400/30`}>
         <AlertTriangle className="w-3 h-3" strokeWidth={2.5} />
       </div>
     )
@@ -68,7 +68,7 @@ function StepBadge({ step, status }: StepBadgeProps) {
 
   // upcoming
   return (
-    <div className={`${baseClasses} bg-stone-200 dark:bg-stone-700 text-stone-500 dark:text-stone-400`}>
+    <div className={`${baseClasses} bg-white/[0.06] text-white/40 border border-white/[0.08]`}>
       {step}
     </div>
   )
