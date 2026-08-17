@@ -31,7 +31,9 @@ function NebulaCloud({ count, speed }: { count: number; speed: number }) {
       const theta = Math.random() * Math.PI * 2
       const phi = Math.acos(2 * Math.random() - 1)
       const r = 4 + Math.pow(Math.random(), 0.4) * 6
-      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+      // Esticada 2.4x no eixo x: em tela larga a esfera pura vira uma coluna
+      // central e as laterais ficam vazias — a elipse cobre a largura toda.
+      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta) * 2.4
       arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
       arr[i * 3 + 2] = r * Math.cos(phi)
     }
@@ -40,7 +42,7 @@ function NebulaCloud({ count, speed }: { count: number; speed: number }) {
 
   useFrame((state) => {
     if (!ref.current) return
-    ref.current.rotation.y += speed * 0.4
+    ref.current.rotation.z += speed * 0.4
     ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.05) * 0.05
   })
 
@@ -53,6 +55,45 @@ function NebulaCloud({ count, speed }: { count: number; speed: number }) {
         sizeAttenuation
         depthWrite={false}
         opacity={0.55}
+      />
+    </Points>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Campo de estrelas distante: caixa larga cobrindo TODA a viewport (o que
+// garante vida nas laterais em qualquer aspect ratio)
+// ---------------------------------------------------------------------------
+
+function Starfield({ count, speed }: { count: number; speed: number }) {
+  const ref = useRef<THREE.Points>(null)
+
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3)
+    for (let i = 0; i < count; i++) {
+      arr[i * 3] = (Math.random() - 0.5) * 36
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 20
+      arr[i * 3 + 2] = -2 - Math.random() * 6
+    }
+    return arr
+  }, [count])
+
+  useFrame((state) => {
+    if (!ref.current) return
+    const t = state.clock.elapsedTime
+    ref.current.rotation.z += speed * 0.15
+    ref.current.position.x = Math.sin(t * 0.04) * 0.6
+  })
+
+  return (
+    <Points ref={ref} positions={positions} stride={3}>
+      <PointMaterial
+        transparent
+        color="#7C8DFF"
+        size={0.03}
+        sizeAttenuation
+        depthWrite={false}
+        opacity={0.45}
       />
     </Points>
   )
@@ -126,7 +167,8 @@ function Scene() {
     <>
       <BreathingCamera />
       <ambientLight intensity={0.4} />
-      <NebulaCloud count={400} speed={baseSpeed} />
+      <Starfield count={350} speed={baseSpeed} />
+      <NebulaCloud count={500} speed={baseSpeed} />
       <PulsingCore count={200} speed={baseSpeed * 2} />
     </>
   )

@@ -41,7 +41,7 @@ export function AppLayout({
         className="pointer-events-none fixed inset-0 z-[1]"
         style={{
           background:
-            'radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(5,6,10,0.55) 100%)',
+            'radial-gradient(ellipse at center, transparent 0%, transparent 60%, rgba(5,6,10,0.4) 100%)',
         }}
         aria-hidden
       />
