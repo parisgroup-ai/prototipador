@@ -33,7 +33,7 @@ export function AppLayout({
     <div className="relative min-h-screen bg-background animate-fade-in flex flex-col overflow-x-clip">
       {/* Cosmos three.js ambiente — o mesmo do onboarding da imersão */}
       <Suspense fallback={null}>
-        <AmbientCosmos opacity={0.5} />
+        <AmbientCosmos opacity={0.65} />
       </Suspense>
 
       {/* Vignette — escurece as bordas pra o conteúdo respirar sobre o cosmos */}

@@ -65,35 +65,60 @@ function NebulaCloud({ count, speed }: { count: number; speed: number }) {
 // garante vida nas laterais em qualquer aspect ratio)
 // ---------------------------------------------------------------------------
 
-function Starfield({ count, speed }: { count: number; speed: number }) {
+function Starfield({
+  count,
+  speed,
+  depth,
+  size,
+  opacity,
+  color,
+}: {
+  count: number
+  speed: number
+  /** Distância atrás do plano do conteúdo (valores positivos = mais longe). */
+  depth: number
+  size: number
+  opacity: number
+  color: string
+}) {
   const ref = useRef<THREE.Points>(null)
+  // viewport = tamanho visível em unidades de mundo NA TELA ATUAL — é isso que
+  // garante estrelas de ponta a ponta em qualquer aspect ratio (a caixa fixa
+  // anterior sumia nas laterais de monitores largos).
+  const { viewport } = useThree()
 
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3)
+    // A profundidade afasta o plano das estrelas; a área visível cresce na
+    // mesma proporção (semelhança de triângulos com a câmera em z=5).
+    const scale = (5 + depth) / 5
+    const w = viewport.width * scale * 1.3
+    const h = viewport.height * scale * 1.3
     for (let i = 0; i < count; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 36
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 20
-      arr[i * 3 + 2] = -2 - Math.random() * 6
+      arr[i * 3] = (Math.random() - 0.5) * w
+      arr[i * 3 + 1] = (Math.random() - 0.5) * h
+      arr[i * 3 + 2] = -depth - Math.random() * 1.5
     }
     return arr
-  }, [count])
+  }, [count, depth, viewport.width, viewport.height])
 
   useFrame((state) => {
     if (!ref.current) return
     const t = state.clock.elapsedTime
-    ref.current.rotation.z += speed * 0.15
-    ref.current.position.x = Math.sin(t * 0.04) * 0.6
+    ref.current.rotation.z += speed * 0.1
+    ref.current.position.x = Math.sin(t * 0.04 + depth) * 0.5
+    ref.current.position.y = Math.cos(t * 0.03 + depth) * 0.3
   })
 
   return (
     <Points ref={ref} positions={positions} stride={3}>
       <PointMaterial
         transparent
-        color="#7C8DFF"
-        size={0.03}
+        color={color}
+        size={size}
         sizeAttenuation
         depthWrite={false}
-        opacity={0.45}
+        opacity={opacity}
       />
     </Points>
   )
@@ -167,7 +192,11 @@ function Scene() {
     <>
       <BreathingCamera />
       <ambientLight intensity={0.4} />
-      <Starfield count={350} speed={baseSpeed} />
+      {/* Duas camadas de estrelas dimensionadas pela viewport: perto (maiores,
+          parallax visível) e longe (miúdas, denso). Juntas cobrem as laterais
+          de qualquer monitor. */}
+      <Starfield count={260} speed={baseSpeed} depth={1.5} size={0.05} opacity={0.65} color="#8FA1FF" />
+      <Starfield count={500} speed={baseSpeed * 0.7} depth={5} size={0.045} opacity={0.5} color="#6E7EF0" />
       <NebulaCloud count={500} speed={baseSpeed} />
       <PulsingCore count={200} speed={baseSpeed * 2} />
     </>
